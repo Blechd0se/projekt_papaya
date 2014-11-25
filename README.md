@@ -24,6 +24,7 @@ DB
 * Globale Variablen den Präfix "gv"
 * Funktionen bestehen aus zweiteiligen deutschen Wörtern (FUNCTION hole_daten)
 * SELECTs sind wie folgt zu formartieren;
+
 	SELECT spalte_a,
 	       spalte_b,
 	       spalte_c
@@ -36,6 +37,7 @@ DB
                   spalte_b; 
 * Kommentare folgen dem Schema /** Kommentar */
 * Am Anfang einer jeden Datei befindet sich;
+
 	/**
 	  Datum: 10.02.2015
 	  Autor: Ich
