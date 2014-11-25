@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="Me_Mensch">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="me_mensch">
 <createdBy>blechd0se</createdBy>
 <createdTime>2014-11-23 23:57:04 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -7,7 +7,7 @@
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Me_Nr" id="92482A22-D289-4553-539C-E20DE53889D2">
+<Column name="me_nr" id="92482A22-D289-4553-539C-E20DE53889D2">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:02:37 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -17,7 +17,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Me_Vorname" id="AE033361-4BD1-151C-23A7-34447BF8A21D">
+<Column name="me_vorname" id="AE033361-4BD1-151C-23A7-34447BF8A21D">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:03:29 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -28,20 +28,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Me_Zwischenname" id="D408D2DF-77A5-9837-2761-86B1F6E9F0CC">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:05:06 UTC</createdTime>
-<commentInRDBMS>Optional, falls es einen Zwischennamen gibt.</commentInRDBMS>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Me_Nachname" id="BC8D2AB6-413B-25AC-69FD-E8FBF8EFBEF8">
+<Column name="me_nachname" id="BC8D2AB6-413B-25AC-69FD-E8FBF8EFBEF8">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:05:22 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -52,7 +39,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Ro_Me_Nr" id="1FB098FE-8B3E-EE22-F53B-D686029CCCFD">
+<Column name="ro_me_nr" id="1FB098FE-8B3E-EE22-F53B-D686029CCCFD">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:10:13 UTC</createdTime>
 <commentInRDBMS>Definiert, welche der Rolle der Dozent einnimmt (extern/intern).</commentInRDBMS>
@@ -67,7 +54,7 @@
 <colAssociation fkAssociation="3A1D7470-4BEA-F551-4839-5786691B6258" referredColumn="7BDABB98-A41F-CA93-83B3-DE1BBED45A06"/>
 </associations>
 </Column>
-<Column name="Me_erstellt_von" id="54372D90-1DDC-0678-6012-E0832E8DFA10">
+<Column name="me_erstellt_von" id="54372D90-1DDC-0678-6012-E0832E8DFA10">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:32:28 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -78,7 +65,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Me_erstellt_am" id="13A12B3E-4ED3-6747-3129-E7F328F3F4AA">
+<Column name="me_erstellt_am" id="13A12B3E-4ED3-6747-3129-E7F328F3F4AA">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:32:40 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -89,7 +76,7 @@
 <defaultValue>SYSDATE</defaultValue>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Me_geaendert_von" id="371D67B4-C295-30DA-932B-BFE92D9EB4B5">
+<Column name="me_geaendert_von" id="371D67B4-C295-30DA-932B-BFE92D9EB4B5">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:32:59 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -101,7 +88,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Me_geandert_am" id="E74C5FE1-7E02-B328-0DE8-D4BD0BF043BE">
+<Column name="me_geandert_am" id="E74C5FE1-7E02-B328-0DE8-D4BD0BF043BE">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:33:10 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -112,7 +99,7 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="St_Me_Nr" id="2C00AAF0-419B-D2A8-46B5-27F51E565B77">
+<Column name="st_me_nr" id="2C00AAF0-419B-D2A8-46B5-27F51E565B77">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:43:27 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>

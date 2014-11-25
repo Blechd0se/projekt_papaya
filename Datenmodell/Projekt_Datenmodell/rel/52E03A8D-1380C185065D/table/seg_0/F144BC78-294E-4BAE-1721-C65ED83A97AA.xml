@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="Vo_Vorlesung">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:21:04 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -7,7 +7,7 @@
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Vo_Nr" id="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61">
+<Column name="vo_nr" id="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:21:24 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -17,7 +17,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Vo_Bezeichnung" id="24DBB352-D02D-7306-B962-8B1ECFF16675">
+<Column name="vo_bezeichnung" id="24DBB352-D02D-7306-B962-8B1ECFF16675">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:21:37 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -28,19 +28,7 @@
 <dataTypeSize>500 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Vo_Kommentar" id="461D61A0-FC18-8279-8E0A-8AD01814AF4A">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:22:07 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>4000 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="Vo_erstellt_von" id="AC8D484B-48A9-9885-2793-B0EDDDE10AC2">
+<Column name="vo_erstellt_von" id="AC8D484B-48A9-9885-2793-B0EDDDE10AC2">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:34:40 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -51,7 +39,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Vo_erstellt_am" id="121FE854-DF77-D872-D34B-2D307E4EB8F8">
+<Column name="vo_erstellt_am" id="121FE854-DF77-D872-D34B-2D307E4EB8F8">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:34:55 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -62,7 +50,7 @@
 <defaultValue>SYSDATE</defaultValue>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Vo_geandert_von" id="5090F8AB-5CE4-63D1-4496-3A26369790E5">
+<Column name="vo_geandert_von" id="5090F8AB-5CE4-63D1-4496-3A26369790E5">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:35:17 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -74,7 +62,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Vo_geaendert_am" id="C72732F6-2F67-5F8B-933D-AF0596F5C4A7">
+<Column name="vo_geaendert_am" id="C72732F6-2F67-5F8B-933D-AF0596F5C4A7">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:35:31 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -83,6 +71,18 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="vo_kommentar" id="461D61A0-FC18-8279-8E0A-8AD01814AF4A">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:22:07 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 </columns>

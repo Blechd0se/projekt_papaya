@@ -1,19 +1,21 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
-   <object objectType="Table" objectID="0A068CB2-6462-B500-CBEC-12A24828EEC9" name="Sl_Status_Logging" seqName="seg_0"/>
-   <object objectType="Table" objectID="4135F25E-87B4-0763-E6A0-8C7A31D11924" name="Mensch_Vorlesung_Zuord" seqName="seg_0"/>
-   <object objectType="Table" objectID="5162F7C3-C3C6-4C5C-E4A2-6287476BBB9C" name="Ro_Rolle" seqName="seg_0"/>
-   <object objectType="Table" objectID="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="Us_User" seqName="seg_0"/>
-   <object objectType="Table" objectID="CD258A57-1455-54B5-39C7-9A875F32BCA4" name="St_Status" seqName="seg_0"/>
-   <object objectType="Table" objectID="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="Vo_Vorlesung" seqName="seg_0"/>
-   <object objectType="Table" objectID="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="Me_Mensch" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="2D66358C-C21B-36A1-94E5-1BC7ACE8CA08" name="Sl_Status_Logging_St_Status_FK" seqName="seg_0"/>
+   <object objectType="Table" objectID="0907C122-ACEF-430C-CD72-DDAD75AB9A72" name="im_import_daten" seqName="seg_0"/>
+   <object objectType="Table" objectID="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="me_mensch" seqName="seg_0"/>
+   <object objectType="Table" objectID="4135F25E-87B4-0763-E6A0-8C7A31D11924" name="mensch_vorlesung_zuord" seqName="seg_0"/>
+   <object objectType="Table" objectID="5162F7C3-C3C6-4C5C-E4A2-6287476BBB9C" name="ro_rolle" seqName="seg_0"/>
+   <object objectType="Table" objectID="0A068CB2-6462-B500-CBEC-12A24828EEC9" name="sl_status_logging" seqName="seg_0"/>
+   <object objectType="Table" objectID="CD258A57-1455-54B5-39C7-9A875F32BCA4" name="st_status" seqName="seg_0"/>
+   <object objectType="Table" objectID="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="us_user" seqName="seg_0"/>
+   <object objectType="Table" objectID="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="3A1D7470-4BEA-F551-4839-5786691B6258" name="Me_Mensch_Ro_Rolle_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="697AF59D-B387-8E7B-B373-4C222076FEC3" name="Us_User_Me_Mensch_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="7A14B063-BF9A-A779-2FBA-703548885FC6" name="Sl_Status_Logging_St_Status_FKv1" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="7A74E9C0-AE68-D918-37BF-EE371C22C80B" name="Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="97BA3FD0-D824-F22B-F1FE-4B75BE98EC79" name="Me_Mensch_St_Status_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="FA0A0EE5-9D7A-35CD-77DC-AA8393D83E10" name="Sl_Status_Logging_Me_Mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="7A74E9C0-AE68-D918-37BF-EE371C22C80B" name="Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="47E3C31E-6CCE-7812-C087-39ADD41A38D4" name="Sl_Status_Logging_Me_Mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="1046DE68-D33F-78C2-A062-62F8DF359A09" name="Sl_Status_Logging_Sl_Status_Logging_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="2D66358C-C21B-36A1-94E5-1BC7ACE8CA08" name="Sl_Status_Logging_St_Status_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="3F8AAFF8-CE1B-9560-FE5C-2F9E93AB13F5" name="Sl_Status_Logging_Us_User_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="697AF59D-B387-8E7B-B373-4C222076FEC3" name="Us_User_Me_Mensch_FK" seqName="seg_0"/>
    <object objectType="Note" objectID="BE25080E-F4F1-B146-AB20-BC2E531DD3A5" name="Note_1" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

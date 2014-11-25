@@ -1,5 +1,5 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="Us_User">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="us_user">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:17:56 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -7,7 +7,7 @@
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="Us_Nr" id="82148184-77F0-9564-632C-28CD5D5FAD75">
+<Column name="us_nr" id="82148184-77F0-9564-632C-28CD5D5FAD75">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:18:22 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -17,7 +17,7 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_Username" id="60F197D4-C607-41C1-1D04-643939336FCF">
+<Column name="us_username" id="60F197D4-C607-41C1-1D04-643939336FCF">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:18:51 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -28,7 +28,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_Password" id="961D47DD-EAFB-0E47-CE6C-DCD5B2F01CAF">
+<Column name="us_password" id="961D47DD-EAFB-0E47-CE6C-DCD5B2F01CAF">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:19:06 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -39,7 +39,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_Me_Nr" id="F5666DA4-3B26-0F1B-6A4A-BDE22D40BB02">
+<Column name="us_me_nr" id="F5666DA4-3B26-0F1B-6A4A-BDE22D40BB02">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:19:34 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -54,7 +54,7 @@
 <colAssociation fkAssociation="697AF59D-B387-8E7B-B373-4C222076FEC3" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
 </associations>
 </Column>
-<Column name="Us_erstellt_von" id="8839C7CB-0CA8-701F-23B5-23246F926D05">
+<Column name="us_erstellt_von" id="8839C7CB-0CA8-701F-23B5-23246F926D05">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:36:25 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -65,7 +65,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_erstellt_am" id="17B8B4CE-CF00-9CBE-D2C8-0C75C201A6BB">
+<Column name="us_erstellt_am" id="17B8B4CE-CF00-9CBE-D2C8-0C75C201A6BB">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:36:43 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -76,7 +76,7 @@
 <defaultValue>SYSDATE</defaultValue>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_geaendert_von" id="BB1BFAB4-A65D-E9CE-6225-22E198E4FC7A">
+<Column name="us_geaendert_von" id="BB1BFAB4-A65D-E9CE-6225-22E198E4FC7A">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:37:02 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
@@ -88,7 +88,7 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="Us_geaendert_am" id="1DE21C2F-2512-6D9F-F7A5-EB57E75BC2D0">
+<Column name="us_geaendert_am" id="1DE21C2F-2512-6D9F-F7A5-EB57E75BC2D0">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:37:13 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
