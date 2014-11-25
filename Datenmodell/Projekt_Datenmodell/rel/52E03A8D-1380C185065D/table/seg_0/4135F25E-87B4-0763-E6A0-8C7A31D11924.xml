@@ -1,0 +1,76 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4135F25E-87B4-0763-E6A0-8C7A31D11924" name="Mensch_Vorlesung_Zuord">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:23:54 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Me_MeVo_Nr" id="0EE33392-F53C-7B3E-1519-409C3BC48A2F">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:25:28 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>92482A22-D289-4553-539C-E20DE53889D2</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
+</associations>
+</Column>
+<Column name="Vo_MeVo_Nr" id="7C5FC6B3-5591-CC86-6A2D-06076244408B">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:25:47 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7A74E9C0-AE68-D918-37BF-EE371C22C80B" referredColumn="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D35528AE-700D-D9B1-FB97-F57535AB8EB6" name="Mensch_Vorlesung_Zuord_PK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:25:28 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0EE33392-F53C-7B3E-1519-409C3BC48A2F"/>
+<colUsage columnID="7C5FC6B3-5591-CC86-6A2D-06076244408B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="49F2989B-A5FF-44F7-BAC4-903D864AA189" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:25:52 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0EE33392-F53C-7B3E-1519-409C3BC48A2F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="962B4EC6-0E3C-A7F4-C335-1A032920BC95" name="Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:26:06 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C5FC6B3-5591-CC86-6A2D-06076244408B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

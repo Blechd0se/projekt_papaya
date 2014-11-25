@@ -1,0 +1,167 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="Me_Mensch">
+<createdBy>blechd0se</createdBy>
+<createdTime>2014-11-23 23:57:04 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Me_Nr" id="92482A22-D289-4553-539C-E20DE53889D2">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:02:37 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_Vorname" id="AE033361-4BD1-151C-23A7-34447BF8A21D">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:03:29 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_Zwischenname" id="D408D2DF-77A5-9837-2761-86B1F6E9F0CC">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:05:06 UTC</createdTime>
+<commentInRDBMS>Optional, falls es einen Zwischennamen gibt.</commentInRDBMS>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_Nachname" id="BC8D2AB6-413B-25AC-69FD-E8FBF8EFBEF8">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:05:22 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Ro_Me_Nr" id="1FB098FE-8B3E-EE22-F53B-D686029CCCFD">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:10:13 UTC</createdTime>
+<commentInRDBMS>Definiert, welche der Rolle der Dozent einnimmt (extern/intern).</commentInRDBMS>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>7BDABB98-A41F-CA93-83B3-DE1BBED45A06</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A1D7470-4BEA-F551-4839-5786691B6258" referredColumn="7BDABB98-A41F-CA93-83B3-DE1BBED45A06"/>
+</associations>
+</Column>
+<Column name="Me_erstellt_von" id="54372D90-1DDC-0678-6012-E0832E8DFA10">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:32:28 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_erstellt_am" id="13A12B3E-4ED3-6747-3129-E7F328F3F4AA">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:32:40 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<defaultValue>SYSDATE</defaultValue>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_geaendert_von" id="371D67B4-C295-30DA-932B-BFE92D9EB4B5">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:32:59 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Me_geandert_am" id="E74C5FE1-7E02-B328-0DE8-D4BD0BF043BE">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:33:10 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="St_Me_Nr" id="2C00AAF0-419B-D2A8-46B5-27F51E565B77">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:43:27 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>E3C9D536-4913-9A4C-2A84-D01C45D46A0F</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="97BA3FD0-D824-F22B-F1FE-4B75BE98EC79" referredColumn="E3C9D536-4913-9A4C-2A84-D01C45D46A0F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EA337CB1-9764-561E-BB64-20D928D27AC7" name="Me_Mensch_PK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:02:37 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="92482A22-D289-4553-539C-E20DE53889D2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="95DFFA6E-A951-47A6-D749-2E92698A8996" name="Me_Mensch_Ro_Rolle_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:16:07 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FB098FE-8B3E-EE22-F53B-D686029CCCFD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7C41F1E3-3A95-0260-6293-0AA1112BE62C" name="Me_Mensch_St_Status_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:43:27 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2C00AAF0-419B-D2A8-46B5-27F51E565B77"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
