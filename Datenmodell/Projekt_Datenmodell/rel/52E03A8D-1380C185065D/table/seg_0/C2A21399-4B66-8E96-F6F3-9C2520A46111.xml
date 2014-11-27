@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="04F0F372-38AA-FDAF-711B-30F1FB62E056" name="fi_firma">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C2A21399-4B66-8E96-F6F3-9C2520A46111" name="mensch_persondaten_zuord">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:40:52 UTC</createdTime>
+<createdTime>2014-11-27 22:37:54 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="fi_nr" id="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C">
+<Column name="mp_nr" id="C7484489-99D9-7F82-A28E-34563264460B">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:41:08 UTC</createdTime>
+<createdTime>2014-11-27 22:38:39 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -17,35 +17,11 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="fi_bezeichnung" id="57C2991C-91B5-1F86-ABFF-B28B7B579C07">
+<Column name="ad_mp_nr" id="188139E0-873F-4C2A-A48F-16F5FE6702A9">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:41:48 UTC</createdTime>
+<createdTime>2014-11-27 22:38:54 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>500 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="fi_kommentar" id="8680427D-1DB8-BD85-A2C7-5CCE98497CAF">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 17:42:01 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>4000 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ad_fi_nr" id="F00BF34F-FD42-6021-A43D-F55ED34AD431">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 17:45:32 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -53,15 +29,14 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="9A8AD694-3A50-00DE-FFF8-893322A871D8" referredColumn="A13D70DE-1175-7554-7C7B-65104D732F93"/>
+<colAssociation fkAssociation="406BB6EC-81FB-001B-7FF2-F5E8C38ADA08" referredColumn="A13D70DE-1175-7554-7C7B-65104D732F93"/>
 </associations>
 </Column>
-<Column name="ko_fi_nr" id="AFBFFCDA-4D5D-0A1F-C800-F1859FE4729E">
+<Column name="ko_mp_nr" id="C08D4DEB-18B5-E165-1361-BB50C64520A0">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:46:49 UTC</createdTime>
+<createdTime>2014-11-27 22:39:21 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
@@ -69,43 +44,69 @@
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="A297F41E-041A-426D-39C4-2CC18F16DE65" referredColumn="548A1CBB-6EEC-FCBC-420F-8235301480D0"/>
+<colAssociation fkAssociation="A416AA9D-5910-58F4-281A-F41B03683863" referredColumn="548A1CBB-6EEC-FCBC-420F-8235301480D0"/>
+</associations>
+</Column>
+<Column name="me_mp_nr" id="14B6F309-B24E-EA6F-4B6D-2079F1032E63">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 22:42:08 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>92482A22-D289-4553-539C-E20DE53889D2</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E3045C7-E0F6-CFC5-CA54-FA8BD0ABF0A6" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
 </associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="BD80A98B-32DD-479B-887D-E5E7BDADA8AD" name="fi_firma_PK">
+<ind_PK_UK id="947D1E93-8A4D-4191-DF8D-BF603C14F8C5" name="mensch_persondaten_zuord_PK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:41:08 UTC</createdTime>
+<createdTime>2014-11-27 22:38:39 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C"/>
+<colUsage columnID="C7484489-99D9-7F82-A28E-34563264460B"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="59531946-BA30-CE95-6417-BA522EEA04C4" name="fi_firma_ad_adresse_FK">
+<ind_PK_UK id="AAD459AE-FF61-C566-1445-0DF7CCACBD8B" name="mensch_persondaten_zuord_ad_adresse_FK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:45:32 UTC</createdTime>
+<createdTime>2014-11-27 22:38:54 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="F00BF34F-FD42-6021-A43D-F55ED34AD431"/>
+<colUsage columnID="188139E0-873F-4C2A-A48F-16F5FE6702A9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="D5180657-FBA1-ABBB-2878-7199B27F5866" name="fi_firma_ko_kontakt_FK">
+<ind_PK_UK id="D570FFF1-FD4C-DD46-DE90-26E5B951AB08" name="mensch_persondaten_zuord_ko_kontakt_FK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 17:46:49 UTC</createdTime>
+<createdTime>2014-11-27 22:39:21 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="AFBFFCDA-4D5D-0A1F-C800-F1859FE4729E"/>
+<colUsage columnID="C08D4DEB-18B5-E165-1361-BB50C64520A0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0EA021F3-C94D-52A9-CFA2-5DED2EC351D8" name="mensch_persondaten_zuord_me_mensch_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 22:42:08 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="14B6F309-B24E-EA6F-4B6D-2079F1032E63"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

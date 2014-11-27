@@ -17,11 +17,42 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="me_mb_nr" id="43C43FA9-508F-54F8-C584-EBF0688CDB91">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:16:45 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>92482A22-D289-4553-539C-E20DE53889D2</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="35A28780-7BF1-65A9-9159-A31D487D6F5F" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
+</associations>
+</Column>
+<Column name="ba_mb_nr" id="0298080F-C6A1-179E-7967-918C3D933DFF">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:39:06 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>3C8A4329-C298-D103-B9DB-D39D72918331</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D6C59B48-75D3-DB4B-5963-053384209EA3" referredColumn="3C8A4329-C298-D103-B9DB-D39D72918331"/>
+</associations>
+</Column>
 <Column name="mb_iban" id="03D661AE-C9F0-9016-74C5-D00A6B39EFE9">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 17:36:09 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -33,6 +64,7 @@
 <createdTime>2014-11-27 17:36:54 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
@@ -62,36 +94,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>4000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ba_mb_nr" id="0298080F-C6A1-179E-7967-918C3D933DFF">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 17:39:06 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>3C8A4329-C298-D103-B9DB-D39D72918331</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="D6C59B48-75D3-DB4B-5963-053384209EA3" referredColumn="3C8A4329-C298-D103-B9DB-D39D72918331"/>
-</associations>
-</Column>
-<Column name="me_mensch_me_nr" id="43C43FA9-508F-54F8-C584-EBF0688CDB91">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:16:45 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>92482A22-D289-4553-539C-E20DE53889D2</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="35A28780-7BF1-65A9-9159-A31D487D6F5F" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

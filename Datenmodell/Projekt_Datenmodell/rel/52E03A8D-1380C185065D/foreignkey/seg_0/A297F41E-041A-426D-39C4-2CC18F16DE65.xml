@@ -8,7 +8,7 @@
 <deleteRule>NO ACTION</deleteRule>
 <localFKIndex>D5180657-FBA1-ABBB-2878-7199B27F5866</localFKIndex>
 <keyObject>47E8A7B6-A362-8971-4FCA-6D0CD2DAC676</keyObject>
-<mandatory>true</mandatory>
+<mandatory>false</mandatory>
 <transferable>true</transferable>
 <columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
 </FKIndexAssociation>

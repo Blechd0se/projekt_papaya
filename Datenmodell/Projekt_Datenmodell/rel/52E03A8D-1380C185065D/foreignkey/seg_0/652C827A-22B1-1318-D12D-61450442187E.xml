@@ -1,12 +1,12 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3A6AD5F7-8B25-4640-6BDE-D64A3FEE6F0E" name="vo_vorlesung_ka_kategorie_FK">
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="652C827A-22B1-1318-D12D-61450442187E" name="pr_praeferenz_su_studienfach_FK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 18:24:52 UTC</createdTime>
+<createdTime>2014-11-27 22:47:48 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<containerWithKeyObject>F144BC78-294E-4BAE-1721-C65ED83A97AA</containerWithKeyObject>
+<containerWithKeyObject>330E22CD-54B3-E7C8-9177-E31D37D45F46</containerWithKeyObject>
 <deleteRule>NO ACTION</deleteRule>
-<localFKIndex>99217F46-FA8B-9513-3291-FD490B048FA9</localFKIndex>
+<localFKIndex>8D2CCDE8-C41C-7B7D-3742-CBF935B4BB63</localFKIndex>
 <keyObject>4C6B7E58-910D-8911-EA5D-5FA001F308E4</keyObject>
 <mandatory>true</mandatory>
 <transferable>true</transferable>

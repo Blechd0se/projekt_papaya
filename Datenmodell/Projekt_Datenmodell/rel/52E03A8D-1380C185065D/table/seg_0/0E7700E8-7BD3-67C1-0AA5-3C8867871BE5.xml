@@ -50,6 +50,18 @@
 <dataTypeSize>11 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="ba_erstellt_von" id="A35D1BB1-E483-49C1-F0B5-C84B38215C76">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 22:35:05 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="ba_kommentar" id="207CD636-31EC-ABA5-9798-86E7A46643A9">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 17:34:35 UTC</createdTime>

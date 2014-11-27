@@ -32,16 +32,20 @@
 <colAssociation fkAssociation="DF9AD38A-1652-B3C1-E58C-CAE470578A50" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
 </associations>
 </Column>
-<Column name="pr_studienfach" id="3475360D-52DB-EDC2-B64E-3364F7C83D0D">
+<Column name="su_pr_nr" id="051FB2F0-52D7-D02B-AB41-B64BFC318ADE">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 18:03:40 UTC</createdTime>
+<createdTime>2014-11-27 22:47:48 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>BBEF6964-8077-8D27-E1DC-354D5A130C90</delegate>
+<previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="652C827A-22B1-1318-D12D-61450442187E" referredColumn="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
+</associations>
 </Column>
 <Column name="pr_lehrauftraege" id="B72C8D36-4B09-DB50-0ACB-7FAD418D156F">
 <createdBy>root</createdBy>
@@ -150,6 +154,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F5109C09-F6FE-6B54-D882-35E21CF073D0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8D2CCDE8-C41C-7B7D-3742-CBF935B4BB63" name="pr_praeferenz_su_studienfach_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 22:47:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="051FB2F0-52D7-D02B-AB41-B64BFC318ADE"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

@@ -40,6 +40,17 @@
 <dataTypeSize>4000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="sp_erstellt_von" id="9F1937A3-060B-3852-7B9C-3A283D8006B0">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 22:56:18 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="1024A04E-059D-DE5D-6D75-C24A5388BFB0" name="sp_sprache_PK">

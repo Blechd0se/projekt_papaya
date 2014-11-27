@@ -28,21 +28,6 @@
 <dataTypeSize>500 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ka_vo_nr" id="5F6440F0-8D6B-6DB1-E4D8-E28950CFA85C">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:24:52 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>BBEF6964-8077-8D27-E1DC-354D5A130C90</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="3A6AD5F7-8B25-4640-6BDE-D64A3FEE6F0E" referredColumn="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
-</associations>
-</Column>
 <Column name="vo_erstellt_von" id="AC8D484B-48A9-9885-2793-B0EDDDE10AC2">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:34:40 UTC</createdTime>
@@ -112,17 +97,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="99217F46-FA8B-9513-3291-FD490B048FA9" name="vo_vorlesung_ka_kategorie_FK">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:24:52 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="5F6440F0-8D6B-6DB1-E4D8-E28950CFA85C"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

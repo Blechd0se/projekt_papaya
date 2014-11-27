@@ -17,6 +17,21 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="fi_mf_nr" id="F842A324-A94A-901F-449B-298403CDB84D">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:44:17 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DF258744-C660-EAE1-25AC-1377A6BF4DDF" referredColumn="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C"/>
+</associations>
+</Column>
 <Column name="mf_abteilung" id="A0F733F4-CC88-A5FC-B9C4-2CF34DECD36D">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 17:43:47 UTC</createdTime>
@@ -40,21 +55,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>4000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="fi_mf_nr" id="F842A324-A94A-901F-449B-298403CDB84D">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 17:44:17 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="DF258744-C660-EAE1-25AC-1377A6BF4DDF" referredColumn="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C"/>
-</associations>
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">

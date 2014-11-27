@@ -3,22 +3,25 @@
    <object objectType="Table" objectID="FD4B92FF-888C-39A5-FE0C-46D8F2C686B1" name="ad_adresse" seqName="seg_0"/>
    <object objectType="Table" objectID="0E7700E8-7BD3-67C1-0AA5-3C8867871BE5" name="ba_bank" seqName="seg_0"/>
    <object objectType="Table" objectID="04F0F372-38AA-FDAF-711B-30F1FB62E056" name="fi_firma" seqName="seg_0"/>
-   <object objectType="Table" objectID="4ABCEBF5-F456-A6B1-8DCF-EC91D45F91CF" name="ka_kategorie" seqName="seg_0"/>
    <object objectType="Table" objectID="E1F13F1A-CAA4-CE63-2939-6E88027D9742" name="ko_kontakt" seqName="seg_0"/>
    <object objectType="Table" objectID="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="me_mensch" seqName="seg_0"/>
    <object objectType="Table" objectID="E02CE04B-FEBC-6BF9-181E-CC00F6870843" name="mensch_bank_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="0C37809F-9882-5582-C212-9D502F8829BD" name="mensch_firma_zuord" seqName="seg_0"/>
+   <object objectType="Table" objectID="C2A21399-4B66-8E96-F6F3-9C2520A46111" name="mensch_persondaten_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="CD86C600-BC5A-97E1-C9D0-30A1C69B6530" name="mensch_sprache_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="4135F25E-87B4-0763-E6A0-8C7A31D11924" name="mensch_vorlesung_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="330E22CD-54B3-E7C8-9177-E31D37D45F46" name="pr_praeferenz" seqName="seg_0"/>
    <object objectType="Table" objectID="BE4EDFEE-855A-21D9-6B8B-EE1005AA74EB" name="praeferenz_vorlesung_zuord" seqName="seg_0"/>
+   <object objectType="Table" objectID="5E505621-141C-D0F7-D416-8F0439989956" name="praeferenz_vorleszeit_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="5162F7C3-C3C6-4C5C-E4A2-6287476BBB9C" name="ro_rolle" seqName="seg_0"/>
    <object objectType="Table" objectID="0A068CB2-6462-B500-CBEC-12A24828EEC9" name="sl_status_logging" seqName="seg_0"/>
    <object objectType="Table" objectID="24D8D306-4655-4490-4D67-1518CFA1E35F" name="sp_sprache" seqName="seg_0"/>
    <object objectType="Table" objectID="CD258A57-1455-54B5-39C7-9A875F32BCA4" name="st_status" seqName="seg_0"/>
+   <object objectType="Table" objectID="4ABCEBF5-F456-A6B1-8DCF-EC91D45F91CF" name="su_studienfach" seqName="seg_0"/>
    <object objectType="Table" objectID="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="us_user" seqName="seg_0"/>
    <object objectType="Table" objectID="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="F8EBE823-2646-806E-FC92-47877FEEBFA7" name="mensch_sprache_zuord_sp_sprache_FK" seqName="seg_0"/>
+   <object objectType="Table" objectID="98D934FC-BCB3-DE6C-ABDE-3EEE7FB67226" name="vz_vorlesungszeit" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="97C9AA6F-4F38-92D8-3454-9F8CE58B4C8C" name="praeferenz_vorleszeit_zuord_pr_praeferenz_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="3A1D7470-4BEA-F551-4839-5786691B6258" name="Me_Mensch_Ro_Rolle_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="97BA3FD0-D824-F22B-F1FE-4B75BE98EC79" name="Me_Mensch_St_Status_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK" seqName="seg_0"/>
@@ -34,10 +37,15 @@
    <object objectType="FKIndexAssociation" objectID="D6C59B48-75D3-DB4B-5963-053384209EA3" name="mensch_bank_zuord_ba_bank_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="35A28780-7BF1-65A9-9159-A31D487D6F5F" name="mensch_bank_zuord_me_mensch_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="DF258744-C660-EAE1-25AC-1377A6BF4DDF" name="mensch_firma_zuord_fi_firma_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="406BB6EC-81FB-001B-7FF2-F5E8C38ADA08" name="mensch_persondaten_zuord_ad_adresse_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A416AA9D-5910-58F4-281A-F41B03683863" name="mensch_persondaten_zuord_ko_kontakt_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="0E3045C7-E0F6-CFC5-CA54-FA8BD0ABF0A6" name="mensch_persondaten_zuord_me_mensch_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="894D73B6-7152-D3D4-3EB1-A86781DFD425" name="mensch_sprache_zuord_me_mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="F8EBE823-2646-806E-FC92-47877FEEBFA7" name="mensch_sprache_zuord_sp_sprache_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="DF9AD38A-1652-B3C1-E58C-CAE470578A50" name="pr_praeferenz_me_mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="652C827A-22B1-1318-D12D-61450442187E" name="pr_praeferenz_su_studienfach_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="2177CB23-1D17-4459-BA6D-ECF1D861423B" name="praeferenz_vorlesung_zuord_pr_praeferenz_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="E16C1910-1553-07C7-F009-0B96710B1C0F" name="praeferenz_vorlesung_zuord_vo_vorlesung_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="3A6AD5F7-8B25-4640-6BDE-D64A3FEE6F0E" name="vo_vorlesung_ka_kategorie_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="6C388BF7-EFFD-C930-DE74-5CB04AB495C6" name="praeferenz_vorleszeit_zuord_vz_vorlesungszeit_FK" seqName="seg_0"/>
    <object objectType="Note" objectID="BE25080E-F4F1-B146-AB20-BC2E531DD3A5" name="Note_1" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>
