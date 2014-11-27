@@ -1,0 +1,58 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4ABCEBF5-F456-A6B1-8DCF-EC91D45F91CF" name="ka_kategorie">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:18:29 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ka_nr" id="BBEF6964-8077-8D27-E1DC-354D5A130C90">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:18:49 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ka_bezeichnung" id="17D7A203-A22B-E1FA-DA67-F5268F189007">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:19:16 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ka_kommentar" id="CB2610F0-D014-561F-B9E6-3B83B32E7C9B">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:19:37 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4C6B7E58-910D-8911-EA5D-5FA001F308E4" name="ka_kategorie_PK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:18:49 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

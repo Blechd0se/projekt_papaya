@@ -1,0 +1,85 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0C37809F-9882-5582-C212-9D502F8829BD" name="mensch_firma_zuord">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:43:03 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="mf_nr" id="28946F03-CD5F-A7D2-7C37-F1E417C83D74">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:43:47 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mf_abteilung" id="A0F733F4-CC88-A5FC-B9C4-2CF34DECD36D">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:43:47 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mf_kommentar" id="C571F82C-1E27-958B-EE0D-D3EFB0F38270">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:44:06 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fi_mf_nr" id="F842A324-A94A-901F-449B-298403CDB84D">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:44:17 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DF258744-C660-EAE1-25AC-1377A6BF4DDF" referredColumn="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5A62A8CF-D569-EC55-37BD-F38BC8E9E9DF" name="mensch_firma_zuord_PK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:43:47 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="28946F03-CD5F-A7D2-7C37-F1E417C83D74"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="A47AA9AA-83FE-9CA1-2C02-EA5F449A9047" name="mensch_firma_zuord_fi_firma_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:44:17 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F842A324-A94A-901F-449B-298403CDB84D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

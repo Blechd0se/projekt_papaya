@@ -1,0 +1,78 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BE4EDFEE-855A-21D9-6B8B-EE1005AA74EB" name="praeferenz_vorlesung_zuord">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:27:28 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pr_prvo_nr" id="5DF8839C-3027-8CD4-2D43-80A4B2E819B8">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:28:05 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>2238DAE0-A5B9-ECAD-DD64-A45627A05958</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2177CB23-1D17-4459-BA6D-ECF1D861423B" referredColumn="2238DAE0-A5B9-ECAD-DD64-A45627A05958"/>
+</associations>
+</Column>
+<Column name="vo_prvo_nr" id="7E5F1E10-FB64-C12D-78D2-77C874BE0A36">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:28:09 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E16C1910-1553-07C7-F009-0B96710B1C0F" referredColumn="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6DC2FC1A-FCC1-92EC-383F-ACA21E223CFD" name="praeferenz_vorlesung_zuord_PK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:28:31 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5DF8839C-3027-8CD4-2D43-80A4B2E819B8"/>
+<colUsage columnID="7E5F1E10-FB64-C12D-78D2-77C874BE0A36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B3124731-79C0-855F-0C70-AC0922CD0BE0" name="praeferenz_vorlesung_zuord_pr_praeferenz_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:28:05 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5DF8839C-3027-8CD4-2D43-80A4B2E819B8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="907948F4-BC81-1D3E-344B-C601E71053CD" name="praeferenz_vorlesung_zuord_vo_vorlesung_FK">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:28:09 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7E5F1E10-FB64-C12D-78D2-77C874BE0A36"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

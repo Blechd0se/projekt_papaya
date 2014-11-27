@@ -99,6 +99,18 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="us_kommentar" id="2B63CAF2-EBD6-5B27-B3EB-88019FF70197">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:29:37 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="BCBB6BC9-D22A-0858-5389-B27F4DC1E257" name="Us_User_PK">
@@ -111,6 +123,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="82148184-77F0-9564-632C-28CD5D5FAD75"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="62C6E190-CBD4-A390-06A4-FD05540B0925" name="us_username_UN">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:00:40 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60F197D4-C607-41C1-1D04-643939336FCF"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="42F8D2BB-14E1-93F7-9051-ACEB15C1ED27" name="Us_User_Me_Mensch_FK">

@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CD258A57-1455-54B5-39C7-9A875F32BCA4" name="st_status">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="FD4B92FF-888C-39A5-FE0C-46D8F2C686B1" name="ad_adresse">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:28:01 UTC</createdTime>
+<createdTime>2014-11-27 17:19:47 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="st_nr" id="E3C9D536-4913-9A4C-2A84-D01C45D46A0F">
+<Column name="ad_nr" id="A13D70DE-1175-7554-7C7B-65104D732F93">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:28:19 UTC</createdTime>
+<createdTime>2014-11-27 17:20:07 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -17,9 +17,31 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="st_bezeichnung" id="46F8F4D9-465C-D5CF-6159-EECAB1307D05">
+<Column name="ad_strasse_nr" id="BB3FF42B-D19B-D4C2-229D-D959FE480DE7">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:28:39 UTC</createdTime>
+<createdTime>2014-11-27 17:21:22 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>500 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ad_plz" id="216888C3-C07A-FFCC-A450-461632701DEA">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:21:53 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ad_ort" id="7BF33E76-9EFC-4C9A-31E1-A772FAC18384">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 17:22:07 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -28,9 +50,9 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="st_erstellt_von" id="D66A1461-0BB2-4247-DC27-C58B2875ACE9">
+<Column name="ad_erstellt_von" id="BD08DCDB-8AB0-C4FA-6D4F-5FA9ADA64396">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:29:53 UTC</createdTime>
+<createdTime>2014-11-27 17:23:15 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -39,42 +61,9 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="st_erstellt_am" id="612A1940-48A4-E581-BB60-E83CF4B7790B">
+<Column name="ad_kommentar" id="C9A5729E-C880-332B-5837-85CAF52433B3">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:29:53 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="st_geaendert_von" id="98413FFF-BB60-91E0-3C3B-7C5B2CD40539">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:30:34 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="st_geaendert_am" id="2E4F0309-E254-E9FA-11FD-BD19F3308E04">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:30:11 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="st_kommentar" id="CA373825-9E2F-A85F-5D01-8BB4976B0761">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 17:29:56 UTC</createdTime>
+<createdTime>2014-11-27 17:22:32 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -86,16 +75,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="EFAC0FD6-A5C8-D450-01CC-6BC5041BE8EC" name="Status_PK">
+<ind_PK_UK id="745064CF-081C-9803-DF84-CA1703C5E524" name="ad_adresse_PK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:28:19 UTC</createdTime>
+<createdTime>2014-11-27 17:20:07 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="E3C9D536-4913-9A4C-2A84-D01C45D46A0F"/>
+<colUsage columnID="A13D70DE-1175-7554-7C7B-65104D732F93"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

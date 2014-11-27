@@ -1,15 +1,15 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung">
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="330E22CD-54B3-E7C8-9177-E31D37D45F46" name="pr_praeferenz">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:21:04 UTC</createdTime>
+<createdTime>2014-11-27 18:02:18 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="vo_nr" id="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61">
+<Column name="pr_nr" id="2238DAE0-A5B9-ECAD-DD64-A45627A05958">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:21:24 UTC</createdTime>
+<createdTime>2014-11-27 18:02:51 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -17,35 +17,24 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vo_bezeichnung" id="24DBB352-D02D-7306-B962-8B1ECFF16675">
+<Column name="me_pr_nr" id="F5109C09-F6FE-6B54-D882-35E21CF073D0">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:21:37 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>500 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ka_vo_nr" id="5F6440F0-8D6B-6DB1-E4D8-E28950CFA85C">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:24:52 UTC</createdTime>
+<createdTime>2014-11-27 18:15:33 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>BBEF6964-8077-8D27-E1DC-354D5A130C90</delegate>
+<delegate>92482A22-D289-4553-539C-E20DE53889D2</delegate>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
-<colAssociation fkAssociation="3A6AD5F7-8B25-4640-6BDE-D64A3FEE6F0E" referredColumn="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
+<colAssociation fkAssociation="DF9AD38A-1652-B3C1-E58C-CAE470578A50" referredColumn="92482A22-D289-4553-539C-E20DE53889D2"/>
 </associations>
 </Column>
-<Column name="vo_erstellt_von" id="AC8D484B-48A9-9885-2793-B0EDDDE10AC2">
+<Column name="pr_studienfach" id="3475360D-52DB-EDC2-B64E-3364F7C83D0D">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:34:40 UTC</createdTime>
+<createdTime>2014-11-27 18:03:40 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -54,20 +43,45 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vo_erstellt_am" id="121FE854-DF77-D872-D34B-2D307E4EB8F8">
+<Column name="pr_lehrauftraege" id="B72C8D36-4B09-DB50-0ACB-7FAD418D156F">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:34:55 UTC</createdTime>
+<createdTime>2014-11-27 18:05:09 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<defaultValue>SYSDATE</defaultValue>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vo_geandert_von" id="5090F8AB-5CE4-63D1-4496-3A26369790E5">
+<Column name="pr_prak_taetig" id="7CBE5DC3-BB7B-4502-5EDD-2890D551F5ED">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:35:17 UTC</createdTime>
+<createdTime>2014-11-27 18:06:08 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pr_weitere_infos" id="AE9E81E7-CA9E-77B4-994A-8C133AAFD1D9">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:07:26 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pr_branche_vertief" id="49D0728B-2C43-E070-401C-2106F0F3764A">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:37:25 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -77,20 +91,33 @@
 <dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vo_geaendert_am" id="C72732F6-2F67-5F8B-933D-AF0596F5C4A7">
+<Column name="pr_branche_vertief_bank" id="B27DAF21-BE32-0BDC-B830-1DDE5B05ED9B">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:35:31 UTC</createdTime>
+<createdTime>2014-11-27 18:37:53 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="vo_kommentar" id="461D61A0-FC18-8279-8E0A-8AD01814AF4A">
+<Column name="pr_branche_vertief_versicher" id="04373823-39ED-DEDE-3421-BA7C347C0BEE">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:22:07 UTC</createdTime>
+<createdTime>2014-11-27 18:38:26 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="pr_kommentar" id="75DEB5DB-6A84-9922-54B7-2BE75151002B">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:08:00 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <nullsAllowed>true</nullsAllowed>
@@ -102,27 +129,27 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="B575DD5C-88C5-A9DF-BBD2-719952EC9DC9" name="Vo_Vorlesung_PK">
+<ind_PK_UK id="26D2FE3E-ADCB-73D7-13ED-E36DF7DB9A77" name="pr_praeferenz_PK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-24 00:21:24 UTC</createdTime>
+<createdTime>2014-11-27 18:02:51 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
+<colUsage columnID="2238DAE0-A5B9-ECAD-DD64-A45627A05958"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="99217F46-FA8B-9513-3291-FD490B048FA9" name="vo_vorlesung_ka_kategorie_FK">
+<ind_PK_UK id="23D2347C-376C-224C-2828-57D6DE85B79C" name="pr_praeferenz_me_mensch_FK">
 <createdBy>root</createdBy>
-<createdTime>2014-11-27 18:24:52 UTC</createdTime>
+<createdTime>2014-11-27 18:15:33 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
 <indexState>Foreign Key</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="5F6440F0-8D6B-6DB1-E4D8-E28950CFA85C"/>
+<colUsage columnID="F5109C09-F6FE-6B54-D882-35E21CF073D0"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
