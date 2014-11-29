@@ -55,6 +55,7 @@ CREATE TABLE ad_adresse
     ad_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ad_adresse ADD CONSTRAINT ad_adresse_PK PRIMARY KEY ( ad_nr ) ;
+ALTER TABLE ad_adresse CHANGE ad_nr ad_nr INT AUTO_INCREMENT;
 
 CREATE TABLE ba_bank
   (
@@ -66,6 +67,7 @@ CREATE TABLE ba_bank
     ba_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ba_bank ADD CONSTRAINT ba_bank_PK PRIMARY KEY ( ba_nr ) ;
+ALTER TABLE ba_bank CHANGE ba_nr ba_nr INT AUTO_INCREMENT;
 
 CREATE TABLE fi_firma
   (
@@ -76,6 +78,7 @@ CREATE TABLE fi_firma
     ko_fi_nr       INT
   ) ;
 ALTER TABLE fi_firma ADD CONSTRAINT fi_firma_PK PRIMARY KEY ( fi_nr ) ;
+ALTER TABLE fi_firma CHANGE fi_nr fi_nr INT AUTO_INCREMENT;
 
 CREATE TABLE ko_kontakt
   (
@@ -89,6 +92,7 @@ CREATE TABLE ko_kontakt
     ko_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ko_kontakt ADD CONSTRAINT ko_kontakt_PK PRIMARY KEY ( ko_nr ) ;
+ALTER TABLE ko_kontakt CHANGE ko_nr ko_nr INT AUTO_INCREMENT;
 
 CREATE TABLE me_mensch
   (
@@ -112,7 +116,7 @@ CREATE TABLE me_mensch
     me_kommentar         VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_PK PRIMARY KEY ( me_nr ) ;
-
+ALTER TABLE me_mensch CHANGE me_nr me_nr INT AUTO_INCREMENT;
 
 CREATE TABLE mensch_bank_zuord
   (
@@ -125,6 +129,7 @@ CREATE TABLE mensch_bank_zuord
     mb_kommentar VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE mensch_bank_zuord ADD CONSTRAINT mensch_bank_zuord_PK PRIMARY KEY ( mb_nr ) ;
+ALTER TABLE mensch_bank_zuord CHANGE mb_nr mb_nr INT AUTO_INCREMENT;
 
 CREATE TABLE mensch_firma_zuord
   (
@@ -134,6 +139,7 @@ CREATE TABLE mensch_firma_zuord
     mf_kommentar VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE mensch_firma_zuord ADD CONSTRAINT mensch_firma_zuord_PK PRIMARY KEY ( mf_nr ) ;
+ALTER TABLE mensch_firma_zuord CHANGE mf_nr mf_nr INT AUTO_INCREMENT;
 
 CREATE TABLE mensch_persondaten_zuord
   (
@@ -143,6 +149,7 @@ CREATE TABLE mensch_persondaten_zuord
     me_mp_nr INT NOT NULL
   ) ;
 ALTER TABLE mensch_persondaten_zuord ADD CONSTRAINT mensch_persondaten_zuord_PK PRIMARY KEY ( mp_nr ) ;
+ALTER TABLE mensch_persondaten_zuord CHANGE mp_nr mp_nr INT AUTO_INCREMENT;
 
 CREATE TABLE mensch_sprache_zuord
   (
@@ -172,6 +179,7 @@ CREATE TABLE pr_praeferenz
     pr_kommentar                 VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_PK PRIMARY KEY ( pr_nr ) ;
+ALTER TABLE pr_praeferenz CHANGE pr_nr pr_nr INT AUTO_INCREMENT;
 
 CREATE TABLE praeferenz_vorlesung_zuord
   (
@@ -199,6 +207,7 @@ CREATE TABLE ro_rolle
     ro_kommentar     VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ro_rolle ADD CONSTRAINT Ro_Rolle_PK PRIMARY KEY ( ro_nr ) ;
+ALTER TABLE ro_rolle CHANGE ro_nr ro_nr INT AUTO_INCREMENT;
 
 CREATE TABLE sl_status_logging
   (
@@ -212,6 +221,7 @@ CREATE TABLE sl_status_logging
     sl_kommentar        VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_PK PRIMARY KEY ( sl_nr ) ;
+ALTER TABLE sl_status_logging CHANGE sl_nr sl_nr INT AUTO_INCREMENT;
 
 CREATE TABLE sp_sprache
   (
@@ -221,6 +231,7 @@ CREATE TABLE sp_sprache
     sp_erstellt_von VARCHAR (200)  NOT NULL
   ) ;
 ALTER TABLE sp_sprache ADD CONSTRAINT sp_sprache_PK PRIMARY KEY ( sp_nr ) ;
+ALTER TABLE sp_sprache CHANGE sp_nr sp_nr INT AUTO_INCREMENT;
 
 CREATE TABLE st_status
   (
@@ -233,6 +244,7 @@ CREATE TABLE st_status
     st_kommentar     VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE st_status ADD CONSTRAINT Status_PK PRIMARY KEY ( st_nr ) ;
+ALTER TABLE st_status CHANGE st_nr st_nr INT AUTO_INCREMENT;
 
 CREATE TABLE su_studienfach
   (
@@ -242,6 +254,7 @@ CREATE TABLE su_studienfach
     su_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE su_studienfach ADD CONSTRAINT ka_kategorie_PK PRIMARY KEY ( su_nr ) ;
+ALTER TABLE su_studienfach CHANGE su_nr su_nr INT AUTO_INCREMENT;
 
 CREATE TABLE us_user
   (
@@ -257,6 +270,7 @@ CREATE TABLE us_user
   ) ;
 ALTER TABLE us_user ADD CONSTRAINT Us_User_PK PRIMARY KEY ( us_nr ) ;
 ALTER TABLE us_user ADD CONSTRAINT us_username_UN UNIQUE ( us_username ) ;
+ALTER TABLE us_user CHANGE us_nr us_nr INT AUTO_INCREMENT;
 
 CREATE TABLE vo_vorlesung
   (
@@ -269,6 +283,7 @@ CREATE TABLE vo_vorlesung
     vo_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE vo_vorlesung ADD CONSTRAINT Vo_Vorlesung_PK PRIMARY KEY ( vo_nr ) ;
+ALTER TABLE vo_vorlesung CHANGE vo_nr vo_nr INT AUTO_INCREMENT;
 
 CREATE TABLE vz_vorlesungszeit
   (
@@ -278,6 +293,7 @@ CREATE TABLE vz_vorlesungszeit
     vz_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE vz_vorlesungszeit ADD CONSTRAINT vz_vorlesungszeit_PK PRIMARY KEY ( vz_nr ) ;
+ALTER TABLE vz_vorlesungszeit CHANGE vz_nr vz_nr INT AUTO_INCREMENT;
 
 ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_Ro_Rolle_FK FOREIGN KEY ( ro_me_nr ) REFERENCES ro_rolle ( ro_nr ) ;
 
