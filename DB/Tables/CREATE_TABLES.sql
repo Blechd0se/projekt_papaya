@@ -3,7 +3,6 @@
  * Datum: 28.11.2014
  * Thema: Initiales DB-Tabellen Script
  */
-
 DROP TABLE ad_adresse CASCADE;
 
 DROP TABLE ba_bank CASCADE;
@@ -53,7 +52,7 @@ CREATE TABLE ad_adresse
     ad_plz          VARCHAR (5)   NOT NULL ,
     ad_ort          VARCHAR (200) NOT NULL ,
     ad_erstellt_von VARCHAR (200) NOT NULL ,
-    ad_kommentar    VARCHAR (4000)
+    ad_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ad_adresse ADD CONSTRAINT ad_adresse_PK PRIMARY KEY ( ad_nr ) ;
 
@@ -64,15 +63,15 @@ CREATE TABLE ba_bank
     ba_blz          INT (8)       NOT NULL ,
     ba_bic          VARCHAR (11)  NOT NULL ,
     ba_erstellt_von VARCHAR (200) ,
-    ba_kommentar    VARCHAR (4000)
+    ba_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ba_bank ADD CONSTRAINT ba_bank_PK PRIMARY KEY ( ba_nr ) ;
 
 CREATE TABLE fi_firma
   (
     fi_nr          INT            NOT NULL ,
-    fi_bezeichnung VARCHAR (500) NOT NULL ,
-    fi_kommentar   VARCHAR (4000) ,
+    fi_bezeichnung VARCHAR (500)  NOT NULL ,
+    fi_kommentar   VARCHAR (4000) DEFAULT NULL,
     ad_fi_nr       INT ,
     ko_fi_nr       INT
   ) ;
@@ -83,11 +82,11 @@ CREATE TABLE ko_kontakt
     ko_nr           INT NOT NULL ,
     ko_telefon      VARCHAR (20) ,
     ko_mobil        VARCHAR (12) ,
-    ko_email        VARCHAR (250) NOT NULL ,
+    ko_email        VARCHAR (250)  NOT NULL ,
     ko_webseite     VARCHAR (300),
     ko_fax          VARCHAR (20) ,
-    ko_erstellt_von VARCHAR (200) NOT NULL ,
-    ko_kommentar    VARCHAR (4000)
+    ko_erstellt_von VARCHAR (200)  NOT NULL ,
+    ko_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ko_kontakt ADD CONSTRAINT ko_kontakt_PK PRIMARY KEY ( ko_nr ) ;
 
@@ -110,8 +109,10 @@ CREATE TABLE me_mensch
     me_erstellt_am       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     me_geaendert_von     VARCHAR (200) ,
     me_geandert_am       DATE ,
-    me_kommentar         VARCHAR (4000)
+    me_kommentar         VARCHAR (4000) DEFAULT NULL
   ) ;
+ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_PK PRIMARY KEY ( me_nr ) ;
+
 
 CREATE TABLE mensch_bank_zuord
   (
@@ -121,7 +122,7 @@ CREATE TABLE mensch_bank_zuord
     mb_iban      VARCHAR (34) ,
     mb_konto_nr  VARCHAR (10) ,
     mb_lbv_nr    VARCHAR (15) ,
-    mb_kommentar VARCHAR (4000)
+    mb_kommentar VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE mensch_bank_zuord ADD CONSTRAINT mensch_bank_zuord_PK PRIMARY KEY ( mb_nr ) ;
 
@@ -130,7 +131,7 @@ CREATE TABLE mensch_firma_zuord
     mf_nr        INT NOT NULL ,
     fi_mf_nr     INT NOT NULL ,
     mf_abteilung VARCHAR (200) ,
-    mf_kommentar VARCHAR (4000)
+    mf_kommentar VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE mensch_firma_zuord ADD CONSTRAINT mensch_firma_zuord_PK PRIMARY KEY ( mf_nr ) ;
 
@@ -168,7 +169,7 @@ CREATE TABLE pr_praeferenz
     pr_branche_vertief           VARCHAR (200) ,
     pr_branche_vertief_bank      VARCHAR (200) ,
     pr_branche_vertief_versicher VARCHAR (200) ,
-    pr_kommentar                 VARCHAR (4000)
+    pr_kommentar                 VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_PK PRIMARY KEY ( pr_nr ) ;
 
@@ -195,7 +196,7 @@ CREATE TABLE ro_rolle
     ro_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     ro_geaendert_von VARCHAR (400) ,
     ro_geaendert_am  TIMESTAMP ,
-    ro_kommentar     VARCHAR (4000)
+    ro_kommentar     VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ro_rolle ADD CONSTRAINT Ro_Rolle_PK PRIMARY KEY ( ro_nr ) ;
 
@@ -208,16 +209,16 @@ CREATE TABLE sl_status_logging
     sl_sl_vorgaenger_nr INT ,
     me_sl_nr            INT NOT NULL ,
     us_sl_nr            INT NOT NULL ,
-    sl_kommentar        VARCHAR (4000)
+    sl_kommentar        VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_PK PRIMARY KEY ( sl_nr ) ;
 
 CREATE TABLE sp_sprache
   (
     sp_nr           INT NOT NULL ,
-    sp_bezeichnung  VARCHAR (200) NOT NULL ,
-    sp_kommentar    VARCHAR (4000) ,
-    sp_erstellt_von VARCHAR (200) NOT NULL
+    sp_bezeichnung  VARCHAR (200)  NOT NULL ,
+    sp_kommentar    VARCHAR (4000) DEFAULT NULL,
+    sp_erstellt_von VARCHAR (200)  NOT NULL
   ) ;
 ALTER TABLE sp_sprache ADD CONSTRAINT sp_sprache_PK PRIMARY KEY ( sp_nr ) ;
 
@@ -229,16 +230,16 @@ CREATE TABLE st_status
     st_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     st_geaendert_von VARCHAR (200) ,
     st_geaendert_am  TIMESTAMP ,
-    st_kommentar     VARCHAR (4000)
+    st_kommentar     VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE st_status ADD CONSTRAINT Status_PK PRIMARY KEY ( st_nr ) ;
 
 CREATE TABLE su_studienfach
   (
     su_nr           INT NOT NULL ,
-    su_bezeichnung  VARCHAR (100) NOT NULL ,
-    su_erstellt_von VARCHAR (200) NOT NULL ,
-    su_kommentar    VARCHAR (4000)
+    su_bezeichnung  VARCHAR (100)  NOT NULL ,
+    su_erstellt_von VARCHAR (200)  NOT NULL ,
+    su_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE su_studienfach ADD CONSTRAINT ka_kategorie_PK PRIMARY KEY ( su_nr ) ;
 
@@ -252,7 +253,7 @@ CREATE TABLE us_user
     us_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     us_geaendert_von VARCHAR (200) ,
     us_geaendert_am  TIMESTAMP ,
-    us_kommentar     VARCHAR (4000)
+    us_kommentar     VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE us_user ADD CONSTRAINT Us_User_PK PRIMARY KEY ( us_nr ) ;
 ALTER TABLE us_user ADD CONSTRAINT us_username_UN UNIQUE ( us_username ) ;
@@ -265,7 +266,7 @@ CREATE TABLE vo_vorlesung
     vo_erstellt_am  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     vo_geandert_von VARCHAR (200) ,
     vo_geaendert_am TIMESTAMP ,
-    vo_kommentar    VARCHAR (4000)
+    vo_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE vo_vorlesung ADD CONSTRAINT Vo_Vorlesung_PK PRIMARY KEY ( vo_nr ) ;
 
@@ -274,7 +275,7 @@ CREATE TABLE vz_vorlesungszeit
     vz_nr           INT NOT NULL ,
     vz_bezeichnung  VARCHAR (21) NOT NULL ,
     vz_erstellt_von VARCHAR (200) NOT NULL ,
-    vz_kommentar    VARCHAR (4000)
+    vz_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE vz_vorlesungszeit ADD CONSTRAINT vz_vorlesungszeit_PK PRIMARY KEY ( vz_nr ) ;
 
