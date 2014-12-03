@@ -32,43 +32,6 @@
 <colAssociation fkAssociation="2D66358C-C21B-36A1-94E5-1BC7ACE8CA08" referredColumn="E3C9D536-4913-9A4C-2A84-D01C45D46A0F"/>
 </associations>
 </Column>
-<Column name="sl_erstellt_von" id="EF77CB28-ECB6-21B2-AFFF-E639A18BD33B">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:46:10 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="sl_erstellt_am" id="B20C6ABA-C172-5139-D8C6-9827A78E47B8">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:46:49 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="sl_sl_vorgaenger_nr" id="E97B87A3-7200-EA2C-627E-00F05C6B6FE1">
-<createdBy>root</createdBy>
-<createdTime>2014-11-25 20:07:23 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>972A482F-F991-60F1-76E0-D323EA04B4C6</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="1046DE68-D33F-78C2-A062-62F8DF359A09" referredColumn="972A482F-F991-60F1-76E0-D323EA04B4C6"/>
-</associations>
-</Column>
 <Column name="me_sl_nr" id="5783855E-46CA-B69F-B482-F3E022FD8A9F">
 <createdBy>root</createdBy>
 <createdTime>2014-11-25 20:09:45 UTC</createdTime>
@@ -98,6 +61,27 @@
 <associations>
 <colAssociation fkAssociation="3F8AAFF8-CE1B-9560-FE5C-2F9E93AB13F5" referredColumn="82148184-77F0-9564-632C-28CD5D5FAD75"/>
 </associations>
+</Column>
+<Column name="sl_erstellt_von" id="EF77CB28-ECB6-21B2-AFFF-E639A18BD33B">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:46:10 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sl_erstellt_am" id="B20C6ABA-C172-5139-D8C6-9827A78E47B8">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:46:49 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="sl_kommentar" id="942A7B23-407F-3D8F-0014-645257726317">
 <createdBy>root</createdBy>
@@ -134,17 +118,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="78F817CF-23F4-2D9D-174A-71B273F9BBCB"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="B816244F-3425-3685-F20A-4E1F4B7C9381" name="Sl_Status_Logging_Sl_Status_Logging_FK">
-<createdBy>root</createdBy>
-<createdTime>2014-11-25 20:07:23 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="E97B87A3-7200-EA2C-627E-00F05C6B6FE1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="ACD85AE2-1C1D-68FD-0EA2-3A86B6E08940" name="Sl_Status_Logging_Me_Mensch_FK">

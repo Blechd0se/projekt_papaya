@@ -1,0 +1,96 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="83506AA6-FA32-8C50-9103-ED676A23FB4F" name="br_branche">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:17:15 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="br_nr" id="7B761971-88F0-5024-FF40-21404940E522">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="br_bezeichnung" id="923B5C85-D7FF-E4F4-80E2-DDEE83BF988B">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="bo_br_nr" id="98CF4632-C87A-929A-2072-B5B57EAE6981">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:58 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>8E517DA4-2D51-9801-330E-5B78EF737211</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C3DDE8DD-4506-308D-4B9A-101408C04096" referredColumn="8E517DA4-2D51-9801-330E-5B78EF737211"/>
+</associations>
+</Column>
+<Column name="br_erstellt_von" id="72C81DDB-D67F-B682-D0AC-B4854F69EB27">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="br_kommentar" id="2226554F-44B2-306B-8EE9-0B9B323A63DB">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>4000 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D536D5E9-9854-724C-3F42-BAF1F4ADDB19" name="br_branche_PK">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B761971-88F0-5024-FF40-21404940E522"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="21CF4ACC-7CCB-A291-536E-DCCB76154E80" name="br_branche_bo_branchenorientierung_FK">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:58 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="98CF4632-C87A-929A-2072-B5B57EAE6981"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

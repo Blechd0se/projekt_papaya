@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C3DDE8DD-4506-308D-4B9A-101408C04096" name="br_branche_bo_branchenorientierung_FK">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-03 09:18:58 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<containerWithKeyObject>83506AA6-FA32-8C50-9103-ED676A23FB4F</containerWithKeyObject>
+<deleteRule>NO ACTION</deleteRule>
+<localFKIndex>21CF4ACC-7CCB-A291-536E-DCCB76154E80</localFKIndex>
+<keyObject>E57403DB-47A2-9821-85C4-9EACFEF4FF54</keyObject>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

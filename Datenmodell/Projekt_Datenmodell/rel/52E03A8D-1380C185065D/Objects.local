@@ -2,6 +2,9 @@
 <oracle.dbtools.crest.model.design.relational.RelationalDesign>
    <object objectType="Table" objectID="FD4B92FF-888C-39A5-FE0C-46D8F2C686B1" name="ad_adresse" seqName="seg_0"/>
    <object objectType="Table" objectID="0E7700E8-7BD3-67C1-0AA5-3C8867871BE5" name="ba_bank" seqName="seg_0"/>
+   <object objectType="Table" objectID="76EB431C-8B3D-8F30-950A-45784BE8D037" name="bo_branchenorientierung" seqName="seg_0"/>
+   <object objectType="Table" objectID="83506AA6-FA32-8C50-9103-ED676A23FB4F" name="br_branche" seqName="seg_0"/>
+   <object objectType="Table" objectID="8730A48C-6EAD-F7E5-CAE6-BC2CDEFD46E3" name="brancheorientier_mensch_zuord" seqName="seg_0"/>
    <object objectType="Table" objectID="04F0F372-38AA-FDAF-711B-30F1FB62E056" name="fi_firma" seqName="seg_0"/>
    <object objectType="Table" objectID="E1F13F1A-CAA4-CE63-2939-6E88027D9742" name="ko_kontakt" seqName="seg_0"/>
    <object objectType="Table" objectID="FDF366BC-E22D-B622-FE61-6F9CE302EA98" name="me_mensch" seqName="seg_0"/>
@@ -21,16 +24,16 @@
    <object objectType="Table" objectID="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="us_user" seqName="seg_0"/>
    <object objectType="Table" objectID="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung" seqName="seg_0"/>
    <object objectType="Table" objectID="98D934FC-BCB3-DE6C-ABDE-3EEE7FB67226" name="vz_vorlesungszeit" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="97C9AA6F-4F38-92D8-3454-9F8CE58B4C8C" name="praeferenz_vorleszeit_zuord_pr_praeferenz_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A875038D-9B92-EDA0-B7CF-D72338B79E29" name="brancheorientier_mensch_zuord_me_mensch_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="3A1D7470-4BEA-F551-4839-5786691B6258" name="Me_Mensch_Ro_Rolle_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="97BA3FD0-D824-F22B-F1FE-4B75BE98EC79" name="Me_Mensch_St_Status_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="7A74E9C0-AE68-D918-37BF-EE371C22C80B" name="Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="47E3C31E-6CCE-7812-C087-39ADD41A38D4" name="Sl_Status_Logging_Me_Mensch_FK" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="1046DE68-D33F-78C2-A062-62F8DF359A09" name="Sl_Status_Logging_Sl_Status_Logging_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="2D66358C-C21B-36A1-94E5-1BC7ACE8CA08" name="Sl_Status_Logging_St_Status_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="3F8AAFF8-CE1B-9560-FE5C-2F9E93AB13F5" name="Sl_Status_Logging_Us_User_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="697AF59D-B387-8E7B-B373-4C222076FEC3" name="Us_User_Me_Mensch_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="C3DDE8DD-4506-308D-4B9A-101408C04096" name="br_branche_bo_branchenorientierung_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="05C087EA-60C3-C241-86C7-071ABF50435C" name="brancheorientier_mensch_zuord_bo_branchenorientierung_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="9A8AD694-3A50-00DE-FFF8-893322A871D8" name="fi_firma_ad_adresse_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="A297F41E-041A-426D-39C4-2CC18F16DE65" name="fi_firma_ko_kontakt_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="F962CD5F-6A21-F728-FE9B-69229845A956" name="me_mensch_mensch_firma_zuord_FK" seqName="seg_0"/>
@@ -46,6 +49,7 @@
    <object objectType="FKIndexAssociation" objectID="652C827A-22B1-1318-D12D-61450442187E" name="pr_praeferenz_su_studienfach_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="2177CB23-1D17-4459-BA6D-ECF1D861423B" name="praeferenz_vorlesung_zuord_pr_praeferenz_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="E16C1910-1553-07C7-F009-0B96710B1C0F" name="praeferenz_vorlesung_zuord_vo_vorlesung_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="97C9AA6F-4F38-92D8-3454-9F8CE58B4C8C" name="praeferenz_vorleszeit_zuord_pr_praeferenz_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="6C388BF7-EFFD-C930-DE74-5CB04AB495C6" name="praeferenz_vorleszeit_zuord_vz_vorlesungszeit_FK" seqName="seg_0"/>
    <object objectType="Note" objectID="BE25080E-F4F1-B146-AB20-BC2E531DD3A5" name="Note_1" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

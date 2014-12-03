@@ -17,6 +17,36 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="ro_me_nr" id="1FB098FE-8B3E-EE22-F53B-D686029CCCFD">
+<createdBy>root</createdBy>
+<createdTime>2014-11-24 00:10:13 UTC</createdTime>
+<commentInRDBMS>Definiert, welche der Rolle der Dozent einnimmt (extern/intern).</commentInRDBMS>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>7BDABB98-A41F-CA93-83B3-DE1BBED45A06</delegate>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3A1D7470-4BEA-F551-4839-5786691B6258" referredColumn="7BDABB98-A41F-CA93-83B3-DE1BBED45A06"/>
+</associations>
+</Column>
+<Column name="mf_me_nr" id="059748C0-9705-1C35-C6B1-C0EA4EDFC8CC">
+<createdBy>root</createdBy>
+<createdTime>2014-11-27 18:12:54 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>28946F03-CD5F-A7D2-7C37-F1E417C83D74</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F962CD5F-6A21-F728-FE9B-69229845A956" referredColumn="28946F03-CD5F-A7D2-7C37-F1E417C83D74"/>
+</associations>
+</Column>
 <Column name="me_anrede" id="C6175F57-5B29-F06F-D66D-C86935133EC7">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 17:14:26 UTC</createdTime>
@@ -104,51 +134,6 @@
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>1 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="ro_me_nr" id="1FB098FE-8B3E-EE22-F53B-D686029CCCFD">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:10:13 UTC</createdTime>
-<commentInRDBMS>Definiert, welche der Rolle der Dozent einnimmt (extern/intern).</commentInRDBMS>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>7BDABB98-A41F-CA93-83B3-DE1BBED45A06</delegate>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="3A1D7470-4BEA-F551-4839-5786691B6258" referredColumn="7BDABB98-A41F-CA93-83B3-DE1BBED45A06"/>
-</associations>
-</Column>
-<Column name="st_me_nr" id="2C00AAF0-419B-D2A8-46B5-27F51E565B77">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:43:27 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>E3C9D536-4913-9A4C-2A84-D01C45D46A0F</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="97BA3FD0-D824-F22B-F1FE-4B75BE98EC79" referredColumn="E3C9D536-4913-9A4C-2A84-D01C45D46A0F"/>
-</associations>
-</Column>
-<Column name="mf_me_nr" id="059748C0-9705-1C35-C6B1-C0EA4EDFC8CC">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:12:54 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<delegate>28946F03-CD5F-A7D2-7C37-F1E417C83D74</delegate>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="F962CD5F-6A21-F728-FE9B-69229845A956" referredColumn="28946F03-CD5F-A7D2-7C37-F1E417C83D74"/>
-</associations>
 </Column>
 <Column name="me_beruf_bezeichnung" id="544D1134-0400-6CF9-460F-67FAFC0B0FC1">
 <createdBy>root</createdBy>
@@ -241,17 +226,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="1FB098FE-8B3E-EE22-F53B-D686029CCCFD"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="7C41F1E3-3A95-0260-6293-0AA1112BE62C" name="Me_Mensch_St_Status_FK">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:43:27 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="2C00AAF0-419B-D2A8-46B5-27F51E565B77"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="7EF3E847-8640-1B4D-58F9-58A5220318C6" name="me_mensch_mensch_firma_zuord_FK">

@@ -83,42 +83,6 @@
 <dataTypeSize>4000 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="pr_branche_vertief" id="49D0728B-2C43-E070-401C-2106F0F3764A">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:37:25 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="pr_branche_vertief_bank" id="B27DAF21-BE32-0BDC-B830-1DDE5B05ED9B">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:37:53 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
-<Column name="pr_branche_vertief_versicher" id="04373823-39ED-DEDE-3421-BA7C347C0BEE">
-<createdBy>root</createdBy>
-<createdTime>2014-11-27 18:38:26 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<nullsAllowed>true</nullsAllowed>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="pr_kommentar" id="75DEB5DB-6A84-9922-54B7-2BE75151002B">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 18:08:00 UTC</createdTime>
