@@ -33,13 +33,15 @@ INSERT INTO v0_mensch_firma_zuord (fi_mf_nr)
                                     WHERE fi_bezeichnung = 'DHBW Admin'));
                               
 -- Admin-User als Mensch:
-INSERT INTO v0_me_mensch (me_anrede, me_titel  , me_vorname, me_nachname, me_gort     , me_gdatum   , me_ist_ehmalig_jn, ro_me_nr                                  , st_me_nr                                   , mf_me_nr                                                   , me_beruf_bezeichnung    , me_erstellt_von)
+INSERT INTO v0_me_mensch (me_anrede, me_titel  , me_vorname, me_nachname, me_gort     , me_gdatum   , me_ist_ehmalig_jn, ro_me_nr                                   , mf_me_nr                                                   , me_beruf_bezeichnung    , me_erstellt_von)
                   VALUES ('Herr'   , 'Prof.Dr.', 'Vorname' , 'Nachname' , 'Stuttgart' , '1900-12-24', 'J'               , (SELECT ro_nr
                                                                                                                              FROM v0_ro_rolle
-                                                                                                                            WHERE ro_bezeichnung = 'ADMINISTRATOR') , (SELECT st_nr
-                                                                                                                                                                         FROM v0_st_status
-                                                                                                                                                                        WHERE st_bezeichnung = 'Initialer Status'), (SELECT mf_nr
+                                                                                                                            WHERE ro_bezeichnung = 'ADMINISTRATOR') , (SELECT mf_nr
                                                                                                                                                                                                                        FROM v0_mensch_firma_zuord
                                                                                                                                                                                                                       WHERE fi_mf_nr = (SELECT fi_nr
                                                                                                                                                                                                                                           FROM v0_fi_firma
                                                                                                                                                                                                                                          WHERE fi_bezeichnung = 'DHBW Admin')) , 'Administrator der DHBW', 'SYSTEM');
+                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                                         
+COMMIT;                                                                                                                                                                                                                                    

@@ -1,13 +1,20 @@
 /**
  * Autor: Alexander Christ
- * Datum: 28.11.2014
+ * Datum: 03.12.2014
  * Thema: Initiales DB-Tabellen Script
  */
+ 
 DROP TABLE ad_adresse CASCADE;
 
 DROP TABLE ba_bank CASCADE;
 
-DROP TABLE fi_firma CASCADE;
+DROP TABLE bo_branchenorientierung CASCADE;
+
+DROP TABLE br_branche CASCADE;
+
+DROP TABLE brancheorientier_mensch_zuord CASCADE;
+
+DROP TABLE fi_firma CASCADE ;
 
 DROP TABLE ko_kontakt CASCADE;
 
@@ -21,13 +28,13 @@ DROP TABLE mensch_persondaten_zuord CASCADE;
 
 DROP TABLE mensch_sprache_zuord CASCADE;
 
-DROP TABLE mensch_vorlesung_zuord CASCADE;
+DROP TABLE mensch_vorlesung_zuord CASCADE ;
 
 DROP TABLE pr_praeferenz CASCADE;
 
 DROP TABLE praeferenz_vorlesung_zuord CASCADE;
 
-DROP TABLE praeferenz_vorleszeit_zuord CASCADE;
+DROP TABLE praeferenz_vorleszeit_zuord CASCADE ;
 
 DROP TABLE ro_rolle CASCADE;
 
@@ -69,6 +76,33 @@ CREATE TABLE ba_bank
 ALTER TABLE ba_bank ADD CONSTRAINT ba_bank_PK PRIMARY KEY ( ba_nr ) ;
 ALTER TABLE ba_bank CHANGE ba_nr ba_nr INT AUTO_INCREMENT;
 
+CREATE TABLE bo_branchenorientierung
+  (
+    bo_nr           INT  NOT NULL ,
+    bo_bezeichnung  VARCHAR (200) NOT NULL ,
+    bo_erstellt_von VARCHAR (200) ,
+    bo_kommentar    VARCHAR (4000) DEFAULT NULL
+  ) ;
+ALTER TABLE bo_branchenorientierung ADD CONSTRAINT br_branchenorientierung_PK PRIMARY KEY ( bo_nr ) ;
+
+CREATE TABLE br_branche
+  (
+    br_nr           INT NOT NULL ,
+    br_bezeichnung  VARCHAR (200) NOT NULL ,
+    bo_br_nr        INT NOT NULL ,
+    br_erstellt_von VARCHAR (200) ,
+    br_kommentar    VARCHAR (4000) DEFAULT NULL
+  ) ;
+ALTER TABLE br_branche ADD CONSTRAINT br_branche_PK PRIMARY KEY ( br_nr ) ;
+
+CREATE TABLE brancheorientier_mensch_zuord
+  (
+    br_brme_nr INT NOT NULL ,
+    me_brme_nr INT NOT NULL
+  ) ;
+--  ERROR: PK name length exceeds maximum allowed length(30)
+ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_PK PRIMARY KEY ( me_brme_nr, br_brme_nr ) ;
+
 CREATE TABLE fi_firma
   (
     fi_nr          INT            NOT NULL ,
@@ -97,6 +131,8 @@ ALTER TABLE ko_kontakt CHANGE ko_nr ko_nr INT AUTO_INCREMENT;
 CREATE TABLE me_mensch
   (
     me_nr                INT           NOT NULL ,
+    ro_me_nr             INT           NOT NULL ,
+    mf_me_nr             INT           NOT NULL ,
     me_anrede            VARCHAR (4)   NOT NULL ,
     me_titel             VARCHAR (10)  NOT NULL ,
     me_vorname           VARCHAR (200) NOT NULL ,
@@ -105,9 +141,6 @@ CREATE TABLE me_mensch
     me_gort              VARCHAR (100) NOT NULL ,
     me_gdatum            DATE          NOT NULL ,
     me_ist_ehmalig_jn    VARCHAR (1)   NOT NULL ,
-    ro_me_nr             INT NOT NULL ,
-    st_me_nr             INT NOT NULL ,
-    mf_me_nr             INT NOT NULL ,
     me_beruf_bezeichnung VARCHAR (500) NOT NULL ,
     me_erstellt_von      VARCHAR (200) NOT NULL ,
     me_erstellt_am       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -173,9 +206,6 @@ CREATE TABLE pr_praeferenz
     pr_lehrauftraege             VARCHAR (1000) ,
     pr_prak_taetig               VARCHAR (1000) ,
     pr_weitere_infos             VARCHAR (4000) ,
-    pr_branche_vertief           VARCHAR (200) ,
-    pr_branche_vertief_bank      VARCHAR (200) ,
-    pr_branche_vertief_versicher VARCHAR (200) ,
     pr_kommentar                 VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_PK PRIMARY KEY ( pr_nr ) ;
@@ -213,11 +243,10 @@ CREATE TABLE sl_status_logging
   (
     sl_nr               INT NOT NULL ,
     st_sl_nr            INT NOT NULL ,
-    sl_erstellt_von     VARCHAR (200) NOT NULL ,
-    sl_erstellt_am      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-    sl_sl_vorgaenger_nr INT ,
     me_sl_nr            INT NOT NULL ,
     us_sl_nr            INT NOT NULL ,
+    sl_erstellt_von     VARCHAR (200) NOT NULL ,
+    sl_erstellt_am      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     sl_kommentar        VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_PK PRIMARY KEY ( sl_nr ) ;
@@ -297,19 +326,21 @@ ALTER TABLE vz_vorlesungszeit CHANGE vz_nr vz_nr INT AUTO_INCREMENT;
 
 ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_Ro_Rolle_FK FOREIGN KEY ( ro_me_nr ) REFERENCES ro_rolle ( ro_nr ) ;
 
-ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_St_Status_FK FOREIGN KEY ( st_me_nr ) REFERENCES st_status ( st_nr ) ;
-
 ALTER TABLE mensch_vorlesung_zuord ADD CONSTRAINT Mensch_Vorlesung_Zuord_Me_Mensch_FK FOREIGN KEY ( me_mevo_nr ) REFERENCES me_mensch ( me_nr ) ;
 
 ALTER TABLE mensch_vorlesung_zuord ADD CONSTRAINT Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK FOREIGN KEY ( vo_mevo_nr ) REFERENCES vo_vorlesung ( vo_nr ) ;
 
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_Me_Mensch_FK FOREIGN KEY ( me_sl_nr ) REFERENCES me_mensch ( me_nr ) ;
 
-ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_Sl_Status_Logging_FK FOREIGN KEY ( sl_sl_vorgaenger_nr ) REFERENCES sl_status_logging ( sl_nr ) ;
-
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_St_Status_FK FOREIGN KEY ( st_sl_nr ) REFERENCES st_status ( st_nr ) ;
 
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_Us_User_FK FOREIGN KEY ( us_sl_nr ) REFERENCES us_user ( us_nr ) ;
+
+ALTER TABLE br_branche ADD CONSTRAINT br_branche_bo_branchenorientierung_FK FOREIGN KEY ( bo_br_nr ) REFERENCES bo_branchenorientierung ( bo_nr ) ;
+
+ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_bo_branchenorientierung_FK FOREIGN KEY ( br_brme_nr ) REFERENCES bo_branchenorientierung ( bo_nr ) ;
+
+ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_me_mensch_FK FOREIGN KEY ( me_brme_nr ) REFERENCES me_mensch ( me_nr ) ;
 
 ALTER TABLE us_user ADD CONSTRAINT Us_User_Me_Mensch_FK FOREIGN KEY ( us_me_nr ) REFERENCES me_mensch ( me_nr ) ;
 
