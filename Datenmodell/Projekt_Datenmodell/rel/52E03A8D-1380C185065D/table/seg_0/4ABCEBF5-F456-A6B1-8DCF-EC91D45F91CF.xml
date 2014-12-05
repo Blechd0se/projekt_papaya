@@ -53,7 +53,7 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="4C6B7E58-910D-8911-EA5D-5FA001F308E4" name="ka_kategorie_PK">
+<ind_PK_UK id="4C6B7E58-910D-8911-EA5D-5FA001F308E4" name="su_studienfach_PK">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 18:18:49 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>

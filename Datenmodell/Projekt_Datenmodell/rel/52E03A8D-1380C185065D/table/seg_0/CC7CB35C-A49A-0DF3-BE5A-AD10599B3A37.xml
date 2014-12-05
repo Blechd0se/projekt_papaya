@@ -36,7 +36,7 @@
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>200 CHAR</dataTypeSize>
+<dataTypeSize>32 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="us_me_nr" id="F5666DA4-3B26-0F1B-6A4A-BDE22D40BB02">

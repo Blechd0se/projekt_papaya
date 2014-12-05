@@ -19,8 +19,8 @@ INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
                   VALUES ('Kontaktaufnahme' , 'SYSTEM');
 
 -- Rollen:
-INSERT INTO v0_ro_rolle (ro_intern_jn, ro_bezeichnung , ro_erstellt_von)
-                 VALUES ( 'J'        , 'ADMINISTRATOR', 'SYSTEM');
+INSERT INTO v0_ro_rolle (ro_bezeichnung , ro_erstellt_von)
+                 VALUES ('ADMINISTRATOR', 'SYSTEM');
                  
 -- Firma-Zuordnung:
 INSERT INTO v0_fi_firma  (fi_bezeichnung)

@@ -17,17 +17,6 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="ro_intern_jn" id="44FC48E0-2454-4723-E1DB-1A89F019CCC4">
-<createdBy>root</createdBy>
-<createdTime>2014-11-24 00:12:08 UTC</createdTime>
-<generatorID>Benutzergeneriert</generatorID>
-<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>1 CHAR</dataTypeSize>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="ro_bezeichnung" id="AE028D21-FCB3-8B60-EDDF-7F09783B6ABA">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:12:49 UTC</createdTime>

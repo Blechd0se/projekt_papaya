@@ -76,33 +76,6 @@ CREATE TABLE ba_bank
 ALTER TABLE ba_bank ADD CONSTRAINT ba_bank_PK PRIMARY KEY ( ba_nr ) ;
 ALTER TABLE ba_bank CHANGE ba_nr ba_nr INT AUTO_INCREMENT;
 
-CREATE TABLE bo_branchenorientierung
-  (
-    bo_nr           INT  NOT NULL ,
-    bo_bezeichnung  VARCHAR (200) NOT NULL ,
-    bo_erstellt_von VARCHAR (200) ,
-    bo_kommentar    VARCHAR (4000) DEFAULT NULL
-  ) ;
-ALTER TABLE bo_branchenorientierung ADD CONSTRAINT br_branchenorientierung_PK PRIMARY KEY ( bo_nr ) ;
-
-CREATE TABLE br_branche
-  (
-    br_nr           INT NOT NULL ,
-    br_bezeichnung  VARCHAR (200) NOT NULL ,
-    bo_br_nr        INT NOT NULL ,
-    br_erstellt_von VARCHAR (200) ,
-    br_kommentar    VARCHAR (4000) DEFAULT NULL
-  ) ;
-ALTER TABLE br_branche ADD CONSTRAINT br_branche_PK PRIMARY KEY ( br_nr ) ;
-
-CREATE TABLE brancheorientier_mensch_zuord
-  (
-    br_brme_nr INT NOT NULL ,
-    me_brme_nr INT NOT NULL
-  ) ;
---  ERROR: PK name length exceeds maximum allowed length(30)
-ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_PK PRIMARY KEY ( me_brme_nr, br_brme_nr ) ;
-
 CREATE TABLE fi_firma
   (
     fi_nr          INT            NOT NULL ,
@@ -228,7 +201,6 @@ ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuo
 CREATE TABLE ro_rolle
   (
     ro_nr            INT           NOT NULL ,
-    ro_intern_jn     VARCHAR (1)   NOT NULL ,
     ro_bezeichnung   VARCHAR (200) NOT NULL ,
     ro_erstellt_von  VARCHAR (400) NOT NULL ,
     ro_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -282,7 +254,7 @@ CREATE TABLE su_studienfach
     su_erstellt_von VARCHAR (200)  NOT NULL ,
     su_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
-ALTER TABLE su_studienfach ADD CONSTRAINT ka_kategorie_PK PRIMARY KEY ( su_nr ) ;
+ALTER TABLE su_studienfach ADD CONSTRAINT su_studienfach_PK PRIMARY KEY ( su_nr ) ;
 ALTER TABLE su_studienfach CHANGE su_nr su_nr INT AUTO_INCREMENT;
 
 CREATE TABLE us_user
@@ -304,6 +276,7 @@ ALTER TABLE us_user CHANGE us_nr us_nr INT AUTO_INCREMENT;
 CREATE TABLE vo_vorlesung
   (
     vo_nr           INT NOT NULL ,
+    su_vo_nr        INT NOT NULL ,
     vo_bezeichnung  VARCHAR (500) NOT NULL ,
     vo_erstellt_von VARCHAR (200) NOT NULL ,
     vo_erstellt_am  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
@@ -335,12 +308,6 @@ ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_Me_Mensch_FK FORE
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_St_Status_FK FOREIGN KEY ( st_sl_nr ) REFERENCES st_status ( st_nr ) ;
 
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_Us_User_FK FOREIGN KEY ( us_sl_nr ) REFERENCES us_user ( us_nr ) ;
-
-ALTER TABLE br_branche ADD CONSTRAINT br_branche_bo_branchenorientierung_FK FOREIGN KEY ( bo_br_nr ) REFERENCES bo_branchenorientierung ( bo_nr ) ;
-
-ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_bo_branchenorientierung_FK FOREIGN KEY ( br_brme_nr ) REFERENCES bo_branchenorientierung ( bo_nr ) ;
-
-ALTER TABLE brancheorientier_mensch_zuord ADD CONSTRAINT brancheorientier_mensch_zuord_me_mensch_FK FOREIGN KEY ( me_brme_nr ) REFERENCES me_mensch ( me_nr ) ;
 
 ALTER TABLE us_user ADD CONSTRAINT Us_User_Me_Mensch_FK FOREIGN KEY ( us_me_nr ) REFERENCES me_mensch ( me_nr ) ;
 
@@ -378,5 +345,6 @@ ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuo
 
 ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuord_vz_vorlesungszeit_FK FOREIGN KEY ( vz_prvz_nr ) REFERENCES vz_vorlesungszeit ( vz_nr ) ;
 
+ALTER TABLE vo_vorlesung ADD CONSTRAINT vo_vorlesung_su_studienfach_FK FOREIGN KEY ( su_vo_nr ) REFERENCES su_studienfach ( su_nr ) ;
 
 

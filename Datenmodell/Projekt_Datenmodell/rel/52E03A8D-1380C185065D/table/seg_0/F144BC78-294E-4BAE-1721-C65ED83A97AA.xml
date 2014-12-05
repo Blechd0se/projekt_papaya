@@ -17,6 +17,21 @@
 <logicalDatatype>LOGDT019</logicalDatatype>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="su_vo_nr" id="8D0F81FE-4DFF-9715-045B-DBD8978B3A83">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-05 08:09:27 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<delegate>BBEF6964-8077-8D27-E1DC-354D5A130C90</delegate>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A79C8E70-BAA3-5CBE-7EEF-125540D2EA5C" referredColumn="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
+</associations>
+</Column>
 <Column name="vo_bezeichnung" id="24DBB352-D02D-7306-B962-8B1ECFF16675">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:21:37 UTC</createdTime>
@@ -97,6 +112,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E0268AE-BF21-5962-CA4B-CC584B7D04BB" name="vo_vorlesung_su_studienfach_FK">
+<createdBy>ac</createdBy>
+<createdTime>2014-12-05 08:09:27 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="8D0F81FE-4DFF-9715-045B-DBD8978B3A83"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
