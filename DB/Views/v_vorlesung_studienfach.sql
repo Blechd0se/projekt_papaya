@@ -6,7 +6,9 @@
  
 CREATE OR REPLACE VIEW v_vorlesung_studienfach
  AS  
- SELECT vo_bezeichnung,
+ SELECT vo_nr,
+        su_nr,
+        vo_bezeichnung,
         vo_erstellt_von,
         vo_erstellt_am,
         su_bezeichnung

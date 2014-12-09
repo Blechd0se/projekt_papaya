@@ -1,11 +1,13 @@
 /**
  * Autor: Alexander Christ
  * Datum: 05.12.2014
- * Thema: Liefert die Statushistorie für Menschen zurück
+ * Thema: Liefert die Statushistorie fÃ¼r Menschen zurÃ¼ck
  */
 CREATE OR REPLACE VIEW v_mensch_status_historie
  AS  
- SELECT me_anrede,
+ SELECT me_nr,
+        st_nr,
+        me_anrede,
         me_titel,
         me_vorname,
         me_nachname,
