@@ -202,7 +202,7 @@ CREATE TABLE ro_rolle
   (
     ro_nr            INT           NOT NULL ,
     ro_bezeichnung   VARCHAR (200) NOT NULL ,
-    ro_erstellt_von  VARCHAR (400) NOT NULL ,
+    ro_erstellt_von  VARCHAR (200) DEFAULT NULL ,
     ro_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     ro_geaendert_von VARCHAR (400) ,
     ro_geaendert_am  TIMESTAMP ,
@@ -229,7 +229,7 @@ CREATE TABLE sp_sprache
     sp_nr           INT NOT NULL ,
     sp_bezeichnung  VARCHAR (200)  NOT NULL ,
     sp_kommentar    VARCHAR (4000) DEFAULT NULL,
-    sp_erstellt_von VARCHAR (200)  NOT NULL
+    sp_erstellt_von VARCHAR (200)  DEFAULT NULL
   ) ;
 ALTER TABLE sp_sprache ADD CONSTRAINT sp_sprache_PK PRIMARY KEY ( sp_nr ) ;
 ALTER TABLE sp_sprache CHANGE sp_nr sp_nr INT AUTO_INCREMENT;
@@ -251,7 +251,7 @@ CREATE TABLE su_studienfach
   (
     su_nr           INT NOT NULL ,
     su_bezeichnung  VARCHAR (100)  NOT NULL ,
-    su_erstellt_von VARCHAR (200)  NOT NULL ,
+    su_erstellt_von VARCHAR (200)  DEFAULT NULL ,
     su_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE su_studienfach ADD CONSTRAINT su_studienfach_PK PRIMARY KEY ( su_nr ) ;
@@ -278,7 +278,7 @@ CREATE TABLE vo_vorlesung
     vo_nr           INT NOT NULL ,
     su_vo_nr        INT NOT NULL ,
     vo_bezeichnung  VARCHAR (500) NOT NULL ,
-    vo_erstellt_von VARCHAR (200) NOT NULL ,
+    vo_erstellt_von VARCHAR (200) DEFAULT NULL ,
     vo_erstellt_am  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     vo_geandert_von VARCHAR (200) ,
     vo_geaendert_am TIMESTAMP ,
@@ -291,7 +291,7 @@ CREATE TABLE vz_vorlesungszeit
   (
     vz_nr           INT NOT NULL ,
     vz_bezeichnung  VARCHAR (21) NOT NULL ,
-    vz_erstellt_von VARCHAR (200) NOT NULL ,
+    vz_erstellt_von VARCHAR (200) DEFAULT NULL ,
     vz_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE vz_vorlesungszeit ADD CONSTRAINT vz_vorlesungszeit_PK PRIMARY KEY ( vz_nr ) ;
