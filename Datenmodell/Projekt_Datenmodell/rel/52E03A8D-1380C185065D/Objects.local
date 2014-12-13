@@ -21,7 +21,6 @@
    <object objectType="Table" objectID="CC7CB35C-A49A-0DF3-BE5A-AD10599B3A37" name="us_user" seqName="seg_0"/>
    <object objectType="Table" objectID="F144BC78-294E-4BAE-1721-C65ED83A97AA" name="vo_vorlesung" seqName="seg_0"/>
    <object objectType="Table" objectID="98D934FC-BCB3-DE6C-ABDE-3EEE7FB67226" name="vz_vorlesungszeit" seqName="seg_0"/>
-   <object objectType="FKIndexAssociation" objectID="A79C8E70-BAA3-5CBE-7EEF-125540D2EA5C" name="vo_vorlesung_su_studienfach_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="3A1D7470-4BEA-F551-4839-5786691B6258" name="Me_Mensch_Ro_Rolle_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="6E830ACB-7109-1EE5-271E-9F8D06EEB61D" name="Mensch_Vorlesung_Zuord_Me_Mensch_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="7A74E9C0-AE68-D918-37BF-EE371C22C80B" name="Mensch_Vorlesung_Zuord_Vo_Vorlesung_FK" seqName="seg_0"/>
@@ -46,5 +45,6 @@
    <object objectType="FKIndexAssociation" objectID="E16C1910-1553-07C7-F009-0B96710B1C0F" name="praeferenz_vorlesung_zuord_vo_vorlesung_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="97C9AA6F-4F38-92D8-3454-9F8CE58B4C8C" name="praeferenz_vorleszeit_zuord_pr_praeferenz_FK" seqName="seg_0"/>
    <object objectType="FKIndexAssociation" objectID="6C388BF7-EFFD-C930-DE74-5CB04AB495C6" name="praeferenz_vorleszeit_zuord_vz_vorlesungszeit_FK" seqName="seg_0"/>
+   <object objectType="FKIndexAssociation" objectID="A79C8E70-BAA3-5CBE-7EEF-125540D2EA5C" name="vo_vorlesung_su_studienfach_FK" seqName="seg_0"/>
    <object objectType="Note" objectID="BE25080E-F4F1-B146-AB20-BC2E531DD3A5" name="Note_1" seqName="seg_0"/>
 </oracle.dbtools.crest.model.design.relational.RelationalDesign>

@@ -34,10 +34,11 @@
 <createdTime>2014-11-24 00:14:00 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
-<dataTypeSize>400 CHAR</dataTypeSize>
+<dataTypeSize>200 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
 <Column name="ro_erstellt_am" id="F834C31A-58F0-7B87-E061-E7CE6AD93229">
