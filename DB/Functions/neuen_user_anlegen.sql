@@ -17,7 +17,7 @@ CREATE FUNCTION neuen_user_anlegen(
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
-    DECLARE v_us_nr INT DEFAULT NULL;
+    DECLARE v_us_nr INT DEFAULT -1;
 
     SELECT us_nr
       INTO v_us_nr
