@@ -58,7 +58,7 @@ CREATE TABLE ad_adresse
     ad_strasse_nr   VARCHAR (500) NOT NULL ,
     ad_plz          VARCHAR (5)   NOT NULL ,
     ad_ort          VARCHAR (200) NOT NULL ,
-    ad_erstellt_von VARCHAR (200) NOT NULL ,
+    ad_erstellt_von VARCHAR (200) DEFAULT NULL ,
     ad_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ad_adresse ADD CONSTRAINT ad_adresse_PK PRIMARY KEY ( ad_nr ) ;
@@ -95,7 +95,7 @@ CREATE TABLE ko_kontakt
     ko_email        VARCHAR (250)  NOT NULL ,
     ko_webseite     VARCHAR (300),
     ko_fax          VARCHAR (20) ,
-    ko_erstellt_von VARCHAR (200)  NOT NULL ,
+    ko_erstellt_von VARCHAR (200)  DEFAULT NULL ,
     ko_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;
 ALTER TABLE ko_kontakt ADD CONSTRAINT ko_kontakt_PK PRIMARY KEY ( ko_nr ) ;
@@ -115,7 +115,7 @@ CREATE TABLE me_mensch
     me_gdatum            DATE          NOT NULL ,
     me_ist_ehmalig_jn    VARCHAR (1)   NOT NULL ,
     me_beruf_bezeichnung VARCHAR (500) NOT NULL ,
-    me_erstellt_von      VARCHAR (200) NOT NULL ,
+    me_erstellt_von      VARCHAR (200) DEFAULT NULL ,
     me_erstellt_am       TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     me_geaendert_von     VARCHAR (200) ,
     me_geandert_am       DATE ,
@@ -217,7 +217,7 @@ CREATE TABLE sl_status_logging
     st_sl_nr            INT NOT NULL ,
     me_sl_nr            INT NOT NULL ,
     us_sl_nr            INT NOT NULL ,
-    sl_erstellt_von     VARCHAR (200) NOT NULL ,
+    sl_erstellt_von     VARCHAR (200) DEFAULT NULL ,
     sl_erstellt_am      TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     sl_kommentar        VARCHAR (4000) DEFAULT NULL
   ) ;
@@ -238,7 +238,7 @@ CREATE TABLE st_status
   (
     st_nr            INT NOT NULL ,
     st_bezeichnung   VARCHAR (200) NOT NULL ,
-    st_erstellt_von  VARCHAR (200) NOT NULL ,
+    st_erstellt_von  VARCHAR (200) DEFAULT NULL ,
     st_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     st_geaendert_von VARCHAR (200) ,
     st_geaendert_am  TIMESTAMP ,
@@ -263,7 +263,7 @@ CREATE TABLE us_user
     us_username      VARCHAR (200) NOT NULL ,
     us_password      VARCHAR (200) NOT NULL ,
     us_me_nr         INT ,
-    us_erstellt_von  VARCHAR (200) NOT NULL ,
+    us_erstellt_von  VARCHAR (200) DEFAULT NULL ,
     us_erstellt_am   TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
     us_geaendert_von VARCHAR (200) ,
     us_geaendert_am  TIMESTAMP ,

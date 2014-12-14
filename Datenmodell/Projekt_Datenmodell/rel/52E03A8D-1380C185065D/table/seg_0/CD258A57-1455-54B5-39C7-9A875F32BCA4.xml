@@ -33,6 +33,7 @@
 <createdTime>2014-11-24 00:29:53 UTC</createdTime>
 <generatorID>Benutzergeneriert</generatorID>
 <ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
 <useDomainConstraints>false</useDomainConstraints>
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>

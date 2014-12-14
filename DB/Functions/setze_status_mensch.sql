@@ -28,8 +28,8 @@ BEGIN
      
     IF iST_NR <> v_aktuelle_st_nr THEN
      
-        INSERT INTO v0_sl_status_logging (st_sl_nr, me_sl_nr, us_sl_nr, sl_erstellt_von, sl_kommentar )
-                                   VALUES (iST_NR  , iME_NR  , iUS_NR  , 'SYSTEM'       , iSL_KOMMENTAR);
+        INSERT INTO v0_sl_status_logging (st_sl_nr, me_sl_nr, us_sl_nr, sl_kommentar )
+                                   VALUES (iST_NR  , iME_NR  , iUS_NR , iSL_KOMMENTAR);
                                    
         RETURN 1;
      
