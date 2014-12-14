@@ -12,6 +12,8 @@ CREATE OR REPLACE VIEW v_mensch_daten
         me_vorname,
         me_nachname,
         st.st_bezeichnung,
+        me_gort,
+        me_gdatum,
         me_ist_ehmalig_jn,
         me_beruf_bezeichnung,
         ad_strasse_nr,
