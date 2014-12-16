@@ -26,8 +26,6 @@ DROP TABLE mensch_firma_zuord CASCADE;
 
 DROP TABLE mensch_persondaten_zuord CASCADE;
 
-DROP TABLE mensch_sprache_zuord CASCADE;
-
 DROP TABLE mensch_vorlesung_zuord CASCADE ;
 
 DROP TABLE pr_praeferenz CASCADE;
@@ -39,8 +37,6 @@ DROP TABLE praeferenz_vorleszeit_zuord CASCADE ;
 DROP TABLE ro_rolle CASCADE;
 
 DROP TABLE sl_status_logging CASCADE;
-
-DROP TABLE sp_sprache CASCADE;
 
 DROP TABLE st_status CASCADE;
 
@@ -157,13 +153,6 @@ CREATE TABLE mensch_persondaten_zuord
 ALTER TABLE mensch_persondaten_zuord ADD CONSTRAINT mensch_persondaten_zuord_PK PRIMARY KEY ( mp_nr ) ;
 ALTER TABLE mensch_persondaten_zuord CHANGE mp_nr mp_nr INT AUTO_INCREMENT;
 
-CREATE TABLE mensch_sprache_zuord
-  (
-    me_mesp_nr INT NOT NULL ,
-    sp_mesp_nr INT NOT NULL
-  ) ;
-ALTER TABLE mensch_sprache_zuord ADD CONSTRAINT mensch_sprache_zuord_PK PRIMARY KEY ( me_mesp_nr, sp_mesp_nr ) ;
-
 CREATE TABLE mensch_vorlesung_zuord
   (
     me_mevo_nr INT NOT NULL ,
@@ -223,16 +212,6 @@ CREATE TABLE sl_status_logging
   ) ;
 ALTER TABLE sl_status_logging ADD CONSTRAINT Sl_Status_Logging_PK PRIMARY KEY ( sl_nr ) ;
 ALTER TABLE sl_status_logging CHANGE sl_nr sl_nr INT AUTO_INCREMENT;
-
-CREATE TABLE sp_sprache
-  (
-    sp_nr           INT NOT NULL ,
-    sp_bezeichnung  VARCHAR (200)  NOT NULL ,
-    sp_kommentar    VARCHAR (4000) DEFAULT NULL,
-    sp_erstellt_von VARCHAR (200)  DEFAULT NULL
-  ) ;
-ALTER TABLE sp_sprache ADD CONSTRAINT sp_sprache_PK PRIMARY KEY ( sp_nr ) ;
-ALTER TABLE sp_sprache CHANGE sp_nr sp_nr INT AUTO_INCREMENT;
 
 CREATE TABLE st_status
   (
@@ -328,10 +307,6 @@ ALTER TABLE mensch_persondaten_zuord ADD CONSTRAINT mensch_persondaten_zuord_ad_
 ALTER TABLE mensch_persondaten_zuord ADD CONSTRAINT mensch_persondaten_zuord_ko_kontakt_FK FOREIGN KEY ( ko_mp_nr ) REFERENCES ko_kontakt ( ko_nr ) ;
 
 ALTER TABLE mensch_persondaten_zuord ADD CONSTRAINT mensch_persondaten_zuord_me_mensch_FK FOREIGN KEY ( me_mp_nr ) REFERENCES me_mensch ( me_nr ) ;
-
-ALTER TABLE mensch_sprache_zuord ADD CONSTRAINT mensch_sprache_zuord_me_mensch_FK FOREIGN KEY ( me_mesp_nr ) REFERENCES me_mensch ( me_nr ) ;
-
-ALTER TABLE mensch_sprache_zuord ADD CONSTRAINT mensch_sprache_zuord_sp_sprache_FK FOREIGN KEY ( sp_mesp_nr ) REFERENCES sp_sprache ( sp_nr ) ;
 
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_me_mensch_FK FOREIGN KEY ( me_pr_nr ) REFERENCES me_mensch ( me_nr ) ;
 
