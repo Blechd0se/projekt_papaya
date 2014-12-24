@@ -10,38 +10,24 @@
 <body>
 
 <?php
-
+	#importklasse definieren
 	class Dozent
 	{
+		//SubklassenAttribute
+		public $kontaktdaten;
+		public $bankdaten;
+		public $adressdaten;
+		public $firmendaten;
+		
+		//Einfache Attribute
 		public $anrede;
 		public $titel;
 		public $abschluss;
 		public $name;
 		public $vorname;
-		public $straßeNr;
-		public $PLZ;
-		public $ort;
 		public $beruf;
-		public $telefon;
-		public $mobil;
-		public $email;
-		public $webseite;
 		public $geburtsdatum;
 		public $geburtsort;
-		public $bank;
-		public $BLZ;
-		public $BIC;
-		public $IBAN;
-		public $kontonummer;
-		public $LBVNr;
-		public $firma;
-		public $firmaAbteilung;
-		public $firmaStraßeNr;
-		public $firmaPLZ;
-		public $firmaOrt;
-		public $firmaTelefon;
-		public $firmaFax;
-		public $firmaMobil;
 		public $ehemaliger;
 		public $bevStudienfach;
 		public $bevVorlesungszeit = array();
@@ -49,45 +35,81 @@
 		public $taetigkeiten;
 		public $info; #"Weitere mögliche Vorlesungsbereiche sowie bereits gehaltene Vorlesungen";
 		public $kommentar;
-		public $vorlesung = array();
+		public $vorlesung = array(); # Vorlesung und Sprache ist ein Array
 		public $sprache = array();
 		public $eingang;
 		
+		public function MenschAnlegen(){
+			
+		}
+	}
+	class Bank{
+		public $name;
+		public $BLZ;
+		public $BIC;
+		public $IBAN;
+		public $kontonummer;
+		public $LBVNr;
 	}
 	
-	echo Start;
+	class Adresse {
+		public $straßeNr;
+		public $PLZ;
+		public $ort;
+	}
+	
+	class Firma {
+		public $name;
+		public $abteilung;
+		public $firmaAdresse;
+		public $kontaktdaten;
+	}
+	class Kontakt{
+		public $telefon;
+		public $mobil;
+		public $email;
+		public $webseite;
+		public $fax;
+	}
+	
 	/** Error reporting */
+	# Welche fehler angezeigt werden Sollen.
 	error_reporting(E_ALL);
 	ini_set('display_errors', TRUE);
 	ini_set('display_startup_errors', TRUE);
-	 
-	#define('EOL',(PHP_SAPI == 'cli') ? PHP_EOL : '<br />');
-	 
+	  
 	/** Include PHPExcel */
+	# PHPExcel Modul Laden
+	
 	require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
-	 
-	#echo ifteil-Anfang;
-	
+
+	# prüft ob das Exceldokument vorhanden ist.
 	if (file_exists("Testdaten_2014.xlsx")) {
-	
-		#echo date('H:i:s') , " Load from Excel2007 file" , EOL;
-		#$callStartTime = microtime(true);
-	
+
+		#Das Exceldokument öffnen und in ein PHPExcel-Objekt laden
 		$objPHPExcel = PHPExcel_IOFactory::load("Testdaten_2014.xlsx");
 	
-		#$callEndTime = microtime(true);
-		#$callTime = $callEndTime - $callStartTime;
-		#echo 'Call time to read Workbook was ' , sprintf('%.4f',$callTime) , " seconds" , EOL;
-		// Echo memory usage
+		#Erstes Tabellenblatt wählen
 		$objPHPExcel->setActiveSheetIndex(0);
 		
+		#Excelblatt Zeile für Zeile durchlaufen
+		#getRowIterator() gibt dabei immer die aktuelle Zeile aus, 
+		#die dann Spalte für Spalte durchgearbeitet werden kann
 		foreach ($objPHPExcel->getActiveSheet()->getRowIterator() as $row) {
-			#neues Dozent erzeugen
+			#neues Dozent-Objekt erzeugen
 			$dozent = new Dozent();
 			
+			#prüfen ob die Zeile möglicherweise ausgeblendet sit (Ist aber nciht wichtig!)
 			if ($objPHPExcel->getActiveSheet()->getRowDimension($row->getRowIndex())->getVisible()) {
-				#echo '    Row number - ' , $row->getRowIndex() , ' ';
 				
+				# Mit dem Folgenden Befehl wird auf die Spalte A der aktuellen Zeile zugegriffen
+				# $objPHPExcel->getActiveSheet()->getCell('A'.$row->getRowIndex())->getValue()
+				# Hier beispielsweise:
+				# Gehen in die Zelle A1 und lies dort den Wert aus
+				
+				# Wenn der Wert ausgelesen wird wird dieser in das Entsprechende Attribut von Dozent eingetragen
+				# $dozent->anrede = 'Ermittelter Wert'
+								
 				$dozent->anrede = $objPHPExcel->getActiveSheet()->getCell('A'.$row->getRowIndex())->getValue();
 				$dozent->titel = $objPHPExcel->getActiveSheet()->getCell('B'.$row->getRowIndex())->getValue();
 				$dozent->abschluss = $objPHPExcel->getActiveSheet()->getCell('C'.$row->getRowIndex())->getValue();
@@ -101,8 +123,11 @@
 				$dozent->mobil = $objPHPExcel->getActiveSheet()->getCell('K'.$row->getRowIndex())->getValue();
 				$dozent->email = $objPHPExcel->getActiveSheet()->getCell('L'.$row->getRowIndex())->getValue();
 				$dozent->webseite = $objPHPExcel->getActiveSheet()->getCell('M'.$row->getRowIndex())->getValue();
-					$datum = $objPHPExcel->getActiveSheet()->getCell('N'.$row->getRowIndex())->getValue();
+				
+				#Ein Datum muss speziell Ausgelesen werden 
+				$datum = $objPHPExcel->getActiveSheet()->getCell('N'.$row->getRowIndex())->getValue();
 				$dozent->geburtsdatum = date('d-m-Y', PHPExcel_Shared_Date::ExcelToPHP($datum));
+				
 				$dozent->geburtsort = $objPHPExcel->getActiveSheet()->getCell('O'.$row->getRowIndex())->getValue();
 				$dozent->bank = $objPHPExcel->getActiveSheet()->getCell('P'.$row->getRowIndex())->getValue();
 				$dozent->BLZ = $objPHPExcel->getActiveSheet()->getCell('Q'.$row->getRowIndex())->getValue();
@@ -120,14 +145,17 @@
 				$dozent->firmaMobil = $objPHPExcel->getActiveSheet()->getCell('AC'.$row->getRowIndex())->getValue();
 				$dozent->ehemaliger = $objPHPExcel->getActiveSheet()->getCell('AD'.$row->getRowIndex())->getValue();
 				$dozent->bevStudienfach = $objPHPExcel->getActiveSheet()->getCell('AE'.$row->getRowIndex())->getValue();
-				#todo splitten
-				$dozent->bevVorlesungszeit[] = $objPHPExcel->getActiveSheet()->getCell('AF'.$row->getRowIndex())->getValue();
+				#todo splitten				
+				$dozent->bevVorlesungszeit[] = preg_split('[\n]', $objPHPExcel->getActiveSheet()->getCell('AF'.$row->getRowIndex())->getValue());
 				
 				$dozent->lehrauftrag = $objPHPExcel->getActiveSheet()->getCell('AG'.$row->getRowIndex())->getValue();
 				$dozent->taetigkeiten = $objPHPExcel->getActiveSheet()->getCell('AH'.$row->getRowIndex())->getValue();
 				$dozent->info = $objPHPExcel->getActiveSheet()->getCell('AI'.$row->getRowIndex())->getValue();
 				$dozent->kommentar = $objPHPExcel->getActiveSheet()->getCell('AJ'.$row->getRowIndex())->getValue();
-				#todo Splitten
+				# todo Splitten
+				# Da die Vorlesungen auf mehrere Spalten im Excel Dokument verteilt
+				# sind muss hier das vorlesungs-Array mehrvach befüllt werden
+				
 				$dozent->vorlesung[] = $objPHPExcel->getActiveSheet()->getCell('AK'.$row->getRowIndex())->getValue();
 				$dozent->vorlesung[] = $objPHPExcel->getActiveSheet()->getCell('AL'.$row->getRowIndex())->getValue();
 				$dozent->vorlesung[] = $objPHPExcel->getActiveSheet()->getCell('AM'.$row->getRowIndex())->getValue();
@@ -144,22 +172,30 @@
 				$dozent->eingang = $objPHPExcel->getActiveSheet()->getCell('AV'.$row->getRowIndex())->getValue();
 				
 				#Testeinträge
+				# Hier werden einfach exemplarisch einige Daten angezeigt um zu schauen was drinn steht
+				
 				echo $dozent->anrede.' ';
 				echo $dozent->geburtsdatum.' ';
 				echo $datum.' ';
+				echo $dozent->vorlesung[0];
 				echo '<br>';
-
+				echo '<br>';
 				
-				#hier Werden die Daten dann in die DB übertragen
+				foreach ($dozent->bevVorlesungszeit as $zeiten){
+					//echo $zeiten;
+					foreach ($zeiten as $zeit){
+						echo $zeit." | ";
+					}
+					//var_dump($zeit);
+				}
+				
+				# hier Werden die Daten dann in die DB übertragen
+				# toDo
 			}
-		}
-		
-		
-		#echo date('H:i:s') , ' Current memory usage: ' , (memory_get_usage(true) / 1024 / 1024) , " MB" , EOL;
-		 
+		}		 
 	}
 	else{
-		exit("Please run 05featuredemo.php first.");
+		exit("Noch irgendeine Nachricht.");
 	}
 
 ?>
