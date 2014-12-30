@@ -10,6 +10,7 @@ DROP FUNCTION neuen_mensch_anlegen;
  * iME_TITEL, String der dem Titel des Menschen entspricht
  * iME_VORNAME, String der dem Vornamen des Menschen entspricht
  * iME_NACHNAME, String der dem Nachnamen des Menschen entspricht
+ * iME_ABSCHLUSS, String der dem Abschluss des Menschen entspricht
  * iME_GORT, String der dem Geburtsort des Menschen entspricht
  * iME_GDATUM, Date das dem Datum (1900-12-31) des Menschen entspricht
  * iME_EHEMALIG, String welcher als Flag angibt, ob ehemalig oder nicht
@@ -17,21 +18,38 @@ DROP FUNCTION neuen_mensch_anlegen;
  * iRO_NR, INT welcher auf eine Rolle verweist
  * iFI_BEZEICHNUNG, String der der Firmen Bezeichnung entspricht
  * iMF_ABTEILUNG, String der der Abteilung des Menschen entspricht
- * iUS_NR, INT welcher User legt diesen Menschen (Status) an?
+ * iUS_NR, INT welcher User legt diesen Menschen (Status) an
+ * iAD_STRASSE_NR, String der der Straße (Wohnort) des Menschen entspricht
+ * iAD_PLZ, String der der PLZ (Wohnort) des Menschen entspricht
+ * iAD_ORT, String der dem Ort (Wohnort) des Menschen entspricht
+ * iKO_TELEFON, String der der (Festnetz-)Telefonnumer des Menschen entspricht
+ * iKO_MOBIL, String der der Mobiltelefonnummer des Menschen entspricht
+ * iKO_EMAIL, String der der Email-Adresse des Menschen entspricht
+ * iKO_WEBSEITE, String der der Webseite des Menschen entspricht
+ * iKO_FAX, String der dem Fax-Anschluss des Menschen entspricht
  */
 CREATE FUNCTION neuen_mensch_anlegen(
-    iME_ANREDE VARCHAR(4), 
-    iME_TITEL VARCHAR(10),
-    iME_VORNAME VARCHAR(200),
-    iME_NACHNAME VARCHAR(200),
-    iME_GORT VARCHAR(100),
-    iME_GDATUM DATE,
-    iME_EHEMALIG VARCHAR(1),
-    iME_BERUF VARCHAR(500),
-    iRO_NR INT,
+    iME_ANREDE      VARCHAR(4), 
+    iME_TITEL       VARCHAR(10),
+    iME_VORNAME     VARCHAR(200),
+    iME_NACHNAME    VARCHAR(200),
+    iME_ABSCHLUSS   VARCHAR(200),
+    iME_GORT        VARCHAR(100),
+    iME_GDATUM      DATE,
+    iME_EHEMALIG    VARCHAR(1),
+    iME_BERUF       VARCHAR(500),
+    iRO_NR          INT,
     iFI_BEZEICHNUNG VARCHAR(500),
-    iMF_ABTEILUNG VARCHAR(200),
-    iUS_NR INT
+    iMF_ABTEILUNG   VARCHAR(200),
+    iUS_NR          INT,
+    iAD_STRASSE_NR  VARCHAR(500),
+    iAD_PLZ         VARCHAR(5),
+    iAD_ORT         VARCHAR(200),
+    iKO_TELEFON     VARCHAR(20),
+    iKO_MOBIL       VARCHAR(12),
+    iKO_EMAIL       VARCHAR(250),
+    iKO_WEBSEITE    VARCHAR(300),
+    iKO_FAX         VARCHAR(20)
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
@@ -85,7 +103,8 @@ BEGIN
     INSERT INTO v0_me_mensch (me_anrede, 
                               me_titel, 
                               me_vorname, 
-                              me_nachname, 
+                              me_nachname,
+                              me_abschluss,
                               me_gort, 
                               me_gdatum, 
                               me_ist_ehmalig_jn, 
@@ -96,6 +115,7 @@ BEGIN
                               iME_TITEL,
                               iME_VORNAME,
                               iME_NACHNAME,
+                              iME_ABSCHLUSS,
                               iME_GORT,
                               iME_GDATUM,
                               iME_EHEMALIG,
@@ -111,6 +131,18 @@ BEGIN
                               VALUES (    1   , v_me_nr   , iUS_NR  , CURRENT_USER()  );
     
     SET @TRIGGER_DISABLED = 0;
+    
+    -- Personendaten zuordnen;
+    CALL neue_personen_daten_anlegen(v_me_nr,
+                                     iAD_STRASSE_NR,
+                                     iAD_PLZ,
+                                     iAD_ORT,
+                                     iKO_TELEFON,
+                                     iKO_MOBIL,
+                                     iKO_EMAIL,
+                                     iKO_WEBSEITE,
+                                     iKO_FAX);
+    
     
     RETURN v_me_nr;
     
