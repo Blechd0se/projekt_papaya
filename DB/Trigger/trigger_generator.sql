@@ -19,5 +19,4 @@
    FROM information_schema.COLUMNS
   WHERE column_name LIKE '%_erstellt_von'
     AND TABLE_NAME NOT LIKE 'v0_%'
-    AND TABLE_NAME <> 'me_mensch'
   ;
