@@ -1,16 +1,25 @@
-DROP PROCEDURE neuen_mensch_anlegen;
+DROP FUNCTION neuen_mensch_anlegen;
 
 /**
  * Autor: Alexander Christ
- * Datum: 13.12.2014
- * Thema: Liefert bei erfolgreichen Daten NULL zurück. Sollte es den
- *        User bereits geben, wird dessen us_nr zurückgegeben.
+ * Datum: 30.12.2014
+ * Thema: Liefert bei erfolgreichem INSERT die ME_NR zurück. Bei Misserfolg
+ *        wird NULL zurückgegeben. 
  * 
- * iUS_USERNAME, String der dem Usernamen entspricht
- * iUS_PASSWORD, String als md5 Hash der dem Passwort entspricht.
- * iUS_ERSTELLT_VON String der den ersteller des Datensatzes angibt
+ * iME_ANREDE, String der der Anrede des Menschen entspricht
+ * iME_TITEL, String der dem Titel des Menschen entspricht
+ * iME_VORNAME, String der dem Vornamen des Menschen entspricht
+ * iME_NACHNAME, String der dem Nachnamen des Menschen entspricht
+ * iME_GORT, String der dem Geburtsort des Menschen entspricht
+ * iME_GDATUM, Date das dem Datum (1900-12-31) des Menschen entspricht
+ * iME_EHEMALIG, String welcher als Flag angibt, ob ehemalig oder nicht
+ * iME_BERUF, String der den Beruf des Menschen entspricht
+ * iRO_NR, INT welcher auf eine Rolle verweist
+ * iFI_BEZEICHNUNG, String der der Firmen Bezeichnung entspricht
+ * iMF_ABTEILUNG, String der der Abteilung des Menschen entspricht
+ * iUS_NR, INT welcher User legt diesen Menschen (Status) an?
  */
-CREATE PROCEDURE neuen_mensch_anlegen(
+CREATE FUNCTION neuen_mensch_anlegen(
     iME_ANREDE VARCHAR(4), 
     iME_TITEL VARCHAR(10),
     iME_VORNAME VARCHAR(200),
@@ -21,13 +30,15 @@ CREATE PROCEDURE neuen_mensch_anlegen(
     iME_BERUF VARCHAR(500),
     iRO_NR INT,
     iFI_BEZEICHNUNG VARCHAR(500),
-    iMF_ABTEILUNG VARCHAR(200)
-  )
+    iMF_ABTEILUNG VARCHAR(200),
+    iUS_NR INT
+  ) RETURNS INT
     DETERMINISTIC
 BEGIN
     DECLARE v_ro_nr INT DEFAULT iRO_NR;
     DECLARE v_fi_nr INT DEFAULT NULL;
     DECLARE v_mf_nr INT DEFAULT NULL;
+    DECLARE v_me_nr INT DEFAULT NULL;
     
     -- Setze auf Default, wenn NULL;
     IF v_ro_nr IS NULL THEN
@@ -67,6 +78,9 @@ BEGIN
     END IF;
 
 
+    -- Trigger innerhalb des Status Logging ausschalten;
+    SET @TRIGGER_DISABLED = 1;
+
     -- Zuerst brauchen wir unseren Menschen als Datensatz, falls er nicht bereits existiert;
     INSERT INTO v0_me_mensch (me_anrede, 
                               me_titel, 
@@ -87,7 +101,17 @@ BEGIN
                               iME_EHEMALIG,
                               v_ro_nr,
                               v_mf_nr,
-                              iME_BERUF);
-                              
+                              iME_BERUF); 
+    -- Speichere unseren "Menschen" zwischen;                         
+    SELECT LAST_INSERT_ID()
+      INTO v_me_nr;
+      
+    -- Initialen Status setzen;   
+    INSERT INTO v0_sl_status_logging (st_sl_nr, me_sl_nr  , us_sl_nr, sl_erstellt_von )
+                              VALUES (    1   , v_me_nr   , iUS_NR  , CURRENT_USER()  );
+    
+    SET @TRIGGER_DISABLED = 0;
+    
+    RETURN v_me_nr;
     
 END;
