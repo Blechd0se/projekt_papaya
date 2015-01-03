@@ -31,6 +31,7 @@ CREATE PROCEDURE neue_personen_daten_anlegen(
 BEGIN
     DECLARE v_ko_nr INT DEFAULT NULL;
     DECLARE v_ad_nr INT DEFAULT NULL;
+    DECLARE v_mp_nr INT DEFAULT NULL;
     
     -- Start mit Kontakte;
     SELECT ko_nr
@@ -62,10 +63,17 @@ BEGIN
           INTO v_ad_nr;
     END IF;
     
-    -- TODO: Dubletten-Check auch hier;
-    -- Nun die Mensch Zuordnung;
-    INSERT INTO v0_mensch_persondaten_zuord (ad_mp_nr, ko_mp_nr, me_mp_nr)
-                                     VALUES (v_ad_nr , v_ko_nr , iME_NR  );
+    -- Hat dieser Mensch schon eine gleiche Zuordnung?
+    SELECT mp_nr
+      INTO v_mp_nr
+      FROM v0_mensch_persondaten_zuord
+     WHERE ad_mp_nr = v_ad_nr
+       AND ko_mp_nr = v_ko_nr
+       AND me_mp_nr = iME_NR;
     
-    
+    IF v_mp_nr IS NULL THEN
+        -- Nun die Mensch Zuordnung;
+        INSERT INTO v0_mensch_persondaten_zuord (ad_mp_nr, ko_mp_nr, me_mp_nr)
+                                         VALUES (v_ad_nr , v_ko_nr , iME_NR  );
+    END IF;
 END;
