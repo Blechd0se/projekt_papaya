@@ -12,9 +12,17 @@ CREATE FUNCTION ist_admin_user(
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
-    IF UPPER(iUS_USERNAME) = UPPER('admin') THEN
-        RETURN 1;      
+    DECLARE v_us_nr INT DEFAULT NULL;
+    
+    SELECT us_nr
+      INTO v_us_nr
+      FROM v0_us_user
+     WHERE us_username = iUS_USERNAME
+       AND us_ist_admin_JN = 'J';
+    
+    IF v_us_nr IS NULL THEN
+        RETURN 0;      
     END IF;
        
-    RETURN 0;
+    RETURN 1;
 END;

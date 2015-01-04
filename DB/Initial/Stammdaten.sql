@@ -5,8 +5,8 @@
  */
  
 -- Initialer 'Admin'-User:
-INSERT INTO v0_us_user (us_username, us_password                            , us_erstellt_von)
-                VALUES ('admin'    , '81dc9bdb52d04dc20036dbd8313ed055'     , 'SYSTEM');
+INSERT INTO v0_us_user (us_username, us_password                            , us_erstellt_von, us_ist_admin_JN)
+                VALUES ('admin'    , '81dc9bdb52d04dc20036dbd8313ed055'     , 'SYSTEM'       ,   'J'          );
 
 -- Status zum Testen:                
 INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)

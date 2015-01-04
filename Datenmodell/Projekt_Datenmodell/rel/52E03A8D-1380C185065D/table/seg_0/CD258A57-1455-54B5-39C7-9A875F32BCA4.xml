@@ -99,5 +99,16 @@
 <colUsage columnID="E3C9D536-4913-9A4C-2A84-D01C45D46A0F"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="7A0911C7-41E0-D95C-A6B7-88CB7EB7642D" name="st_status__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 16:52:48 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="46F8F4D9-465C-D5CF-6159-EECAB1307D05"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

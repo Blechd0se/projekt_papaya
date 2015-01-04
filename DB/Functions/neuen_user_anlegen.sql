@@ -11,9 +11,9 @@ DROP FUNCTION neuen_user_anlegen;
  * iUS_ERSTELLT_VON String der den ersteller des Datensatzes angibt
  */
 CREATE FUNCTION neuen_user_anlegen(
-    iUS_USERNAME VARCHAR(200), 
-    iUS_PASSWORD VARCHAR(32),
-    iUS_ERSTELLT_VON VARCHAR(200)
+    iUS_USERNAME   VARCHAR(200), 
+    iUS_PASSWORD   VARCHAR(32),
+    iUS_IST_ADMIN  VARCHAR(1)
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
@@ -26,8 +26,8 @@ BEGIN
 
     IF v_us_nr IS NULL THEN
 
-        INSERT INTO v0_us_user (us_username  , us_password  , us_erstellt_von  )
-                        VALUES (iUS_USERNAME , iUS_PASSWORD , iUS_ERSTELLT_VON );
+        INSERT INTO v0_us_user (us_username  , us_password  , us_ist_admin_JN )
+                        VALUES (iUS_USERNAME , iUS_PASSWORD , iUS_IST_ADMIN   );
                     
     END IF;
        
