@@ -69,6 +69,15 @@ BEGIN
     DECLARE v_fi_nr INT DEFAULT NULL;
     DECLARE v_mf_nr INT DEFAULT NULL;
     DECLARE v_me_nr INT DEFAULT NULL;
+    DECLARE v_admin INT DEFAULT 0;
+    
+    SELECT ist_admin_user(null, iUS_NR)
+      INTO v_admin;
+    
+    IF v_admin <> 1 THEN
+        -- Wir sind kein Admin;
+        RETURN NULL;
+    END IF;
     
     -- Setze auf Default, wenn NULL;
     IF v_ro_nr IS NULL THEN
