@@ -88,5 +88,16 @@
 <colUsage columnID="3C8A4329-C298-D103-B9DB-D39D72918331"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="2C69E720-88EB-6612-9CFD-3DD400CE2416" name="ba_bank__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:22:45 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3A994AE-BC3D-A50F-DCD6-11D03945CA0C"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

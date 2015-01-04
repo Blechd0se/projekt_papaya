@@ -39,6 +39,17 @@
 <dataTypeSize>32 CHAR</dataTypeSize>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="us_ist_admin_JN" id="BE218397-56B0-72E9-078B-2049766F057B">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:20:45 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1 CHAR</dataTypeSize>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="us_me_nr" id="F5666DA4-3B26-0F1B-6A4A-BDE22D40BB02">
 <createdBy>root</createdBy>
 <createdTime>2014-11-24 00:19:34 UTC</createdTime>

@@ -66,5 +66,16 @@
 <colUsage columnID="A5BFD0A9-C376-DB0B-6BD1-CA34644929AD"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="577D683F-F9F3-E38D-CB75-A492FEEACA5F" name="vz_vorlesungszeit__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:24:01 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A1F8007F-77B6-71BD-4CF1-C35550EF5E91"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

@@ -115,6 +115,17 @@
 <colUsage columnID="3BDC7688-D8A2-BABF-78DF-3EFA62A5EC61"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="2C0E61AB-FEC4-E0A8-8E88-8C5A22B78F6E" name="vo_vorlesung__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:23:43 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="24DBB352-D02D-7306-B962-8B1ECFF16675"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="2E0268AE-BF21-5962-CA4B-CC584B7D04BB" name="vo_vorlesung_su_studienfach_FK">
 <createdBy>ac</createdBy>
 <createdTime>2014-12-05 08:09:27 UTC</createdTime>

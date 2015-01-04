@@ -66,5 +66,16 @@
 <colUsage columnID="BBEF6964-8077-8D27-E1DC-354D5A130C90"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="97C483EB-1BB2-2618-7718-EF7FCC707463" name="su_studienfach__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:23:51 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="17D7A203-A22B-E1FA-DA67-F5268F189007"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

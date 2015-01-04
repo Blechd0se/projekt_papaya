@@ -101,5 +101,16 @@
 <colUsage columnID="7BDABB98-A41F-CA93-83B3-DE1BBED45A06"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="32807BE2-637E-D3EF-D5E2-D1B4F2209B8B" name="ro_rolle__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:24:13 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AE028D21-FCB3-8B60-EDDF-7F09783B6ABA"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

@@ -114,5 +114,16 @@
 <colUsage columnID="548A1CBB-6EEC-FCBC-420F-8235301480D0"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="C7FE19BF-FD1F-54B5-8196-7A0435125DE6" name="ko_kontakt__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:21:30 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D4755E29-22B3-17C7-3140-ED57DABD97E3"/>
+</indexColumnUsage>
+</ind_PK_UK>
 </indexes>
 </Table>

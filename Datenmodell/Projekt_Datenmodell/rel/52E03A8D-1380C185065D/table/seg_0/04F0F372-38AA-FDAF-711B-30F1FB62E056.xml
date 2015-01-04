@@ -86,6 +86,17 @@
 <colUsage columnID="E8D4F1DA-47E1-D1DA-C465-D5ACF19D396C"/>
 </indexColumnUsage>
 </ind_PK_UK>
+<ind_PK_UK id="D307527A-2D5D-E790-1C17-A7E5CC6AF675" name="fi_firma__UN">
+<createdBy>root</createdBy>
+<createdTime>2015-01-04 00:22:13 UTC</createdTime>
+<generatorID>Benutzergeneriert</generatorID>
+<ownerDesignName>Projekt_Datenmodell</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57C2991C-91B5-1F86-ABFF-B28B7B579C07"/>
+</indexColumnUsage>
+</ind_PK_UK>
 <ind_PK_UK id="59531946-BA30-CE95-6417-BA522EEA04C4" name="fi_firma_ad_adresse_FK">
 <createdBy>root</createdBy>
 <createdTime>2014-11-27 17:45:32 UTC</createdTime>
