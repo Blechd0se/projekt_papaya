@@ -14,10 +14,10 @@ require_once dirname(__FILE__) . '/ExcelImport.php';
 
 $import = new ExcelImport("Testdaten_2014.xlsx");
 
-// echo '<table>';
-// $import->showData();
+echo '<table>';
+$import->showData();
 
-// echo '</table>';
+echo '</table>';
 
 $import->dozentenEintragen();
 // 	require_once dirname(__FILE__) . '/Classes/PHPExcel.php';
