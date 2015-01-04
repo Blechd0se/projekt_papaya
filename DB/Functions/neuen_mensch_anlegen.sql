@@ -27,6 +27,12 @@ DROP FUNCTION neuen_mensch_anlegen;
  * iKO_EMAIL, String der der Email-Adresse des Menschen entspricht
  * iKO_WEBSEITE, String der der Webseite des Menschen entspricht
  * iKO_FAX, String der dem Fax-Anschluss des Menschen entspricht
+ * iBA_BEZEICHNUNG, String der der Bezeichnung der Bank des Menschen entspricht
+ * iBA_BLZ, String Bankleitzahl BLZ der Bank entspricht
+ * iBA_BIC, String die BIC (Bank Identifier Code) der Bank entspricht
+ * iMB_IBAN, (Optional) String der der IBAN des Menschen entspricht
+ * iMB_KONTO_NR, (Optional) String der der Kontonummer des Menschen entspricht
+ * iMB_LBV_NR, (Optional) String der der LBV Nummer des Menschen entspricht 
  */
 CREATE FUNCTION neuen_mensch_anlegen(
     iME_ANREDE      VARCHAR(4), 
@@ -49,7 +55,13 @@ CREATE FUNCTION neuen_mensch_anlegen(
     iKO_MOBIL       VARCHAR(12),
     iKO_EMAIL       VARCHAR(250),
     iKO_WEBSEITE    VARCHAR(300),
-    iKO_FAX         VARCHAR(20)
+    iKO_FAX         VARCHAR(20),
+    iBA_BEZEICHNUNG VARCHAR(500),
+    iBA_BLZ         INT(8),
+    iBA_BIC         VARCHAR(11),
+    iMB_IBAN        VARCHAR(34),
+    iMB_KONTO_NR    VARCHAR(10),
+    iMB_LBV_NR      VARCHAR(15)    
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
@@ -143,6 +155,14 @@ BEGIN
                                      iKO_WEBSEITE,
                                      iKO_FAX);
     
+    -- Bankdaten zuordnen;
+    CALL neue_bankdaten_anlegen(v_me_nr,
+                                iBA_BEZEICHNUNG,
+                                iBA_BLZ,
+                                iBA_BIC,
+                                iMB_IBAN,
+                                iMB_KONTO_NR,
+                                iMB_LBV_NR);
     
     RETURN v_me_nr;
     
