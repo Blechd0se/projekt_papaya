@@ -30,9 +30,7 @@ DROP TABLE mensch_vorlesung_zuord CASCADE ;
 
 DROP TABLE pr_praeferenz CASCADE;
 
-DROP TABLE praeferenz_vorlesung_zuord CASCADE;
-
-DROP TABLE praeferenz_vorleszeit_zuord CASCADE ;
+DROP TABLE mensch_vorlesungszeit_zuord CASCADE;
 
 DROP TABLE ro_rolle CASCADE;
 
@@ -176,19 +174,12 @@ CREATE TABLE pr_praeferenz
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_PK PRIMARY KEY ( pr_nr ) ;
 ALTER TABLE pr_praeferenz CHANGE pr_nr pr_nr INT AUTO_INCREMENT;
 
-CREATE TABLE praeferenz_vorlesung_zuord
+CREATE TABLE mensch_vorleszeit_zuord
   (
-    pr_prvo_nr INT NOT NULL ,
-    vo_prvo_nr INT NOT NULL
+    vz_mevz_nr INT NOT NULL ,
+    me_mevz_nr INT NOT NULL
   ) ;
-ALTER TABLE praeferenz_vorlesung_zuord ADD CONSTRAINT praeferenz_vorlesung_zuord_PK PRIMARY KEY ( pr_prvo_nr, vo_prvo_nr ) ;
-
-CREATE TABLE praeferenz_vorleszeit_zuord
-  (
-    vz_prvz_nr INT NOT NULL ,
-    pr_prvz_nr INT NOT NULL
-  ) ;
-ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuord_PK PRIMARY KEY ( pr_prvz_nr, vz_prvz_nr ) ;
+ALTER TABLE mensch_vorleszeit_zuord ADD CONSTRAINT mensch_vorlesung_zuord_PK PRIMARY KEY ( vz_mevz_nr, me_mevz_nr ) ;
 
 CREATE TABLE ro_rolle
   (
@@ -321,13 +312,9 @@ ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_me_mensch_FK FOREIGN KEY 
 
 ALTER TABLE pr_praeferenz ADD CONSTRAINT pr_praeferenz_su_studienfach_FK FOREIGN KEY ( su_pr_nr ) REFERENCES su_studienfach ( su_nr ) ;
 
-ALTER TABLE praeferenz_vorlesung_zuord ADD CONSTRAINT praeferenz_vorlesung_zuord_pr_praeferenz_FK FOREIGN KEY ( pr_prvo_nr ) REFERENCES pr_praeferenz ( pr_nr ) ;
+ALTER TABLE mensch_vorleszeit_zuord ADD CONSTRAINT mensch_vorleszeit_zuord_me_mensch_FK FOREIGN KEY ( me_mevz_nr ) REFERENCES me_mensch ( me_nr ) ;
 
-ALTER TABLE praeferenz_vorlesung_zuord ADD CONSTRAINT praeferenz_vorlesung_zuord_vo_vorlesung_FK FOREIGN KEY ( vo_prvo_nr ) REFERENCES vo_vorlesung ( vo_nr ) ;
-
-ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuord_pr_praeferenz_FK FOREIGN KEY ( pr_prvz_nr ) REFERENCES pr_praeferenz ( pr_nr ) ;
-
-ALTER TABLE praeferenz_vorleszeit_zuord ADD CONSTRAINT praeferenz_vorleszeit_zuord_vz_vorlesungszeit_FK FOREIGN KEY ( vz_prvz_nr ) REFERENCES vz_vorlesungszeit ( vz_nr ) ;
+ALTER TABLE mensch_vorleszeit_zuord ADD CONSTRAINT mensch_vorleszeit_zuord_vz_vorlesungszeit_FK FOREIGN KEY ( vz_mevz_nr ) REFERENCES vz_vorlesungszeit ( vz_nr ) ;
 
 ALTER TABLE vo_vorlesung ADD CONSTRAINT vo_vorlesung_su_studienfach_FK FOREIGN KEY ( su_vo_nr ) REFERENCES su_studienfach ( su_nr ) ;
 
