@@ -33,6 +33,11 @@ DROP FUNCTION neuen_mensch_anlegen;
  * iMB_IBAN, (Optional) String der der IBAN des Menschen entspricht
  * iMB_KONTO_NR, (Optional) String der der Kontonummer des Menschen entspricht
  * iMB_LBV_NR, (Optional) String der der LBV Nummer des Menschen entspricht 
+ * iSU_BEZEICHNUNG, String der der Bezeichnung des Studienfaches des Menschen entspricht
+ * iPR_LEHRAUFTRAEGE, (Optional) String der den Lehraufträgen des Menschen(Dozenten) entspricht
+ * iPR_PRAK_TAETIG, (Optional) String der praktischen Tätigkeit des Menschen (Dozenten) entspricht
+ * iPR_WEITERE_INFOS, (Optional) String der weitere Informationen enthält
+ * iPR_KOMMENTAR, (Optional) String der ein Kommentar des Menschen entspricht
  */
 CREATE FUNCTION neuen_mensch_anlegen(
     iME_ANREDE      VARCHAR(4), 
@@ -61,7 +66,12 @@ CREATE FUNCTION neuen_mensch_anlegen(
     iBA_BIC         VARCHAR(11),
     iMB_IBAN        VARCHAR(34),
     iMB_KONTO_NR    VARCHAR(10),
-    iMB_LBV_NR      VARCHAR(15)    
+    iMB_LBV_NR      VARCHAR(15),
+    iSU_BEZEICHNUNG   VARCHAR(100),
+    iPR_LEHRAUFTRAEGE VARCHAR(1000),
+    iPR_PRAK_TAETIG   VARCHAR(1000),
+    iPR_WEITERE_INFOS VARCHAR(4000),
+    iPR_KOMMENTAR     VARCHAR(4000)
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
@@ -172,6 +182,14 @@ BEGIN
                                 iMB_IBAN,
                                 iMB_KONTO_NR,
                                 iMB_LBV_NR);
+                                
+    -- Präferenz zuordnen;
+    CALL neue_praeferenz_anlegen(v_me_nr,
+                                 iSU_BEZEICHNUNG,
+                                 iPR_LEHRAUFTRAEGE,
+                                 iPR_PRAK_TAETIG,
+                                 iPR_WEITERE_INFOS,
+                                 iPR_KOMMENTAR);
     
     RETURN v_me_nr;
     
