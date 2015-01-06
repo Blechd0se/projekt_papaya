@@ -64,8 +64,8 @@ CREATE TABLE ba_bank
   (
     ba_nr           INT           NOT NULL ,
     ba_bezeichnung  VARCHAR (500) NOT NULL ,
-    ba_blz          INT (8)       NOT NULL ,
-    ba_bic          VARCHAR (11)  NOT NULL ,
+    ba_blz          INT (8)       ,
+    ba_bic          VARCHAR (11)  ,
     ba_erstellt_von VARCHAR (200) ,
     ba_kommentar    VARCHAR (4000) DEFAULT NULL
   ) ;

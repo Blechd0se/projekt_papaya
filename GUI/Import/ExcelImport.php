@@ -70,6 +70,7 @@ class ExcelImport{
 
 	private $objPHPExcel;
 	private $dozenten  = array();
+	private $template = array(); 
 	
 	function __construct($datei){
 		/** Error reporting */
@@ -81,121 +82,129 @@ class ExcelImport{
 		/** Include PHPExcel */
 		# PHPExcel Modul Laden
 
-		# prüft ob das Exceldokument vorhanden ist.
-		if (file_exists($datei)) {
-					
-		#Das Exceldokument öffnen und in ein PHPExcel-Objekt laden
-		$this->objPHPExcel = PHPExcel_IOFactory::load($datei);
-			
-				#Erstes Tabellenblatt wählen
-				$this->objPHPExcel->setActiveSheetIndex(0);
-					
-				#Excelblatt Zeile für Zeile durchlaufen
-				#getRowIterator() gibt dabei immer die aktuelle Zeile aus,
-				#die dann Spalte für Spalte durchgearbeitet werden kann
-				foreach ($this->objPHPExcel->getActiveSheet()->getRowIterator() as $row) {
-				#neues Dozent-Objekt erzeugen
-					$dozent = new Dozent();
-					$dozent->adressdaten = new Adresse();
-					$dozent->kontaktdaten = new Kontakt();
-					$dozent->bankdaten = new Bank();
-					$dozent->firmendaten = new Firma();
-					$dozent->firmendaten->firmaadresse = new Adresse();
-					$dozent->firmendaten->kontaktdaten = new Kontakt();
-
-					#prüfen ob die Zeile möglicherweise ausgeblendet sit (Ist aber nciht wichtig!)
-					$rowNumber = $row->getRowIndex();
-					if ($rowNumber > 1 and $this->objPHPExcel->getActiveSheet()->getRowDimension($row->getRowIndex())->getVisible()) {
+		$this->template = explode(";",utf8_encode("Anrede;Titel;Abschluss;Name;Vorname;Straße Nr.;PLZ;Ort;Beruf;Telefon;Mobil;E-Mail;Webseite;Geburtsdatum;Geburtsort;Bank;BLZ;BIC;IBAN;Kontonummer;LBV-Nr.;Arbeitgeber Firma;Abteilung;Straße Nr.;PLZ;Ort;Telefon;Fax;Mobil;Ehemalige/r BA-/DHBW-Student/in;Bevorzugtes Studienfach;Bevorzugte Vorlesungszeiten;Lehraufträge und Lehrtätigkeiten;Praktische Tätigkeiten;Weitere mögliche Vorlesungsbereiche sowie bereits gehaltene Vorlesungen;Anmerkungen, Ergänzungen;Methoden der Wirtschaftsinformatik;Informationstechnologie;Systementwicklung;Mathematik;Allgemeine BWL;Branchenorientierte Vertiefung;Branchenorientierte Vertiefung Bank;Branchenorientierte Vertiefung Versicherung;VWL;Recht;Allgemeine BWL;eingegangen am"));
+		
+		try{
+			# prüft ob das Exceldokument vorhanden ist.
+			if (file_exists($datei)) {
 						
-					# Mit dem Folgenden Befehl wird auf die Spalte A der aktuellen Zeile zugegriffen
-						# $objPHPExcel->getActiveSheet()->getCell('A'.$row->getRowIndex())->getValue()
-						# Hier beispielsweise:
-						# Gehen in die Zelle A1 und lies dort den Wert aus
-
-						# Wenn der Wert ausgelesen wird wird dieser in das Entsprechende Attribut von Dozent eingetragen
-						# $dozent->anrede = 'Ermittelter Wert'
-
-						$dozent->anrede = $this->getColumnValue('A', $row->getRowIndex());
-						$dozent->titel = $this->getColumnValue('B',$row->getRowIndex());
-						$dozent->abschluss = $this->getColumnValue('C',$row->getRowIndex());
-						$dozent->name = $this->getColumnValue('D', $row->getRowIndex());
-						$dozent->vorname = $this->getColumnValue('E',$row->getRowIndex());
+			#Das Exceldokument öffnen und in ein PHPExcel-Objekt laden
+			$this->objPHPExcel = PHPExcel_IOFactory::load($datei);
+				
+					#Erstes Tabellenblatt wählen
+					$this->objPHPExcel->setActiveSheetIndex(0);
 						
-						$dozent->adressdaten->straße = $this->getColumnValue('F',$row->getRowIndex());
-						$dozent->adressdaten->plz = $this->getColumnValue('G',$row->getRowIndex());
-						$dozent->adressdaten->ort = $this->getColumnValue('H',$row->getRowIndex());
+					#Excelblatt Zeile für Zeile durchlaufen
+					#getRowIterator() gibt dabei immer die aktuelle Zeile aus,
+					#die dann Spalte für Spalte durchgearbeitet werden kann
+					foreach ($this->objPHPExcel->getActiveSheet()->getRowIterator() as $row) {
+					#neues Dozent-Objekt erzeugen
+						$dozent = new Dozent();
+						$dozent->adressdaten = new Adresse();
+						$dozent->kontaktdaten = new Kontakt();
+						$dozent->bankdaten = new Bank();
+						$dozent->firmendaten = new Firma();
+						$dozent->firmendaten->firmaadresse = new Adresse();
+						$dozent->firmendaten->kontaktdaten = new Kontakt();
+	
 						
-						$dozent->beruf = $this->getColumnValue('I',$row->getRowIndex());
-						
-						$dozent->kontaktdaten->telefon = $this->getColumnValue('J',$row->getRowIndex());
-						$dozent->kontaktdaten->mobil = $this->getColumnValue('K',$row->getRowIndex());
-						$dozent->kontaktdaten->email = $this->getColumnValue('L',$row->getRowIndex());
-						$dozent->kontaktdaten->webseite = $this->getColumnValue('M',$row->getRowIndex());
-							
-						#Ein Datum muss speziell Ausgelesen werden
-						$datum = $this->getColumnValue('N',$row->getRowIndex());
-						$dozent->geburtsdatum = date('Y-m-d', PHPExcel_Shared_Date::ExcelToPHP($datum));
-							
-						$dozent->geburtsort = $this->getColumnValue('O',$row->getRowIndex());
-						$dozent->bankdaten->bank = $this->getColumnValue('P',$row->getRowIndex());
-						$dozent->bankdaten->blz = $this->getColumnValue('Q',$row->getRowIndex());
-						$dozent->bankdaten->bic = $this->getColumnValue('R',$row->getRowIndex());
-						$dozent->bankdaten->iban = $this->getColumnValue('S',$row->getRowIndex());
-						$dozent->bankdaten->kontonummer = $this->getColumnValue('T',$row->getRowIndex());
-						$dozent->bankdaten->lbvnr = $this->getColumnValue('U',$row->getRowIndex());
-						
-						$dozent->firmendaten->name = $this->getColumnValue('V',$row->getRowIndex());
-						$dozent->firmendaten->abteilung = $this->getColumnValue('W',$row->getRowIndex());
-						$dozent->firmendaten->firmaadresse->straße = $this->getColumnValue('X',$row->getRowIndex());
-						$dozent->firmendaten->firmaadresse->plz = $this->getColumnValue('Y',$row->getRowIndex());
-						$dozent->firmendaten->firmaadresse->ort = $this->getColumnValue('Z',$row->getRowIndex());
-						$dozent->firmendaten->kontaktdaten->telefon = $this->getColumnValue('AA',$row->getRowIndex());
-						$dozent->firmendaten->kontaktdaten->fax = $this->getColumnValue('AB',$row->getRowIndex());
-						$dozent->firmendaten->kontaktdaten->mobil = $this->getColumnValue('AC',$row->getRowIndex());
-						
-						$dozent->ehemaliger = $this->getColumnValue('AD',$row->getRowIndex());
-						$dozent->studienfach = $this->getColumnValue('AE',$row->getRowIndex());
-						$dozent->vorlesungszeiten = explode("\n", rtrim($this->getColumnValue('AF',$row->getRowIndex()),"\n"));	
-						$dozent->lehrauftrag = $this->getColumnValue('AG',$row->getRowIndex());
-						$dozent->taetigkeiten = $this->getColumnValue('AH',$row->getRowIndex());
-						$dozent->info = $this->getColumnValue('AI',$row->getRowIndex());
-						$dozent->kommentar = $this->getColumnValue('AJ',$row->getRowIndex());
-							
-						# Da die Vorlesungen auf mehrere Spalten im Excel Dokument verteilt
-						# sind muss hier das vorlesungs-Array mehrvach befüllt werden
-						#Einsortieren der Verschiedenen Spalten von Vorlesungen in ein einizges Array
-						$spalten = array('AK', 'AL','AM','AN','AO','AP','AQ','AR','AS','AT',);
-						$tempVorlesungen = "";
-									
-						foreach ($spalten as $vs){
-							$zelle = $this->getColumnValue($vs,$row->getRowIndex());
-							if ($zelle <> "") {
-								if ($tempVorlesungen == ""){
-									$tempVorlesungen = $zelle;
-								}
-								else{
-									$tempVorlesungen = $tempVorlesungen ."\n". $zelle;
-								}
-							}
-													
+						$rowNumber = $row->getRowIndex();
+						if ($rowNumber == 1 and $this->objPHPExcel->getActiveSheet()->getRowDimension($row->getRowIndex())->getVisible()){
+							$this->pruefeExcelstuktur();
 						}
-						$dozent->vorlesungen = explode("\n", $tempVorlesungen);
-						$dozent->sprachen = explode("\n",$this->getColumnValue('AU',$row->getRowIndex()));
-						$dozent->eingang = $this->getColumnValue('AV',$row->getRowIndex());
-
-						array_push($this->dozenten, $dozent);
 						
-						$dozent = null;
+						if ($rowNumber > 1 and $this->objPHPExcel->getActiveSheet()->getRowDimension($row->getRowIndex())->getVisible()) {
+						# Mit dem Folgenden Befehl wird auf die Spalte A der aktuellen Zeile zugegriffen
+							# $objPHPExcel->getActiveSheet()->getCell('A'.$row->getRowIndex())->getValue()
+							# Hier beispielsweise:
+							# Gehen in die Zelle A1 und lies dort den Wert aus
+	
+							# Wenn der Wert ausgelesen wird wird dieser in das Entsprechende Attribut von Dozent eingetragen
+							# $dozent->anrede = 'Ermittelter Wert'
+							$dozent->anrede = $this->getColumnValue('A', $rowNumber);
+							$dozent->titel = $this->getColumnValue('B', $rowNumber);
+							$dozent->abschluss = $this->getColumnValue('C', $rowNumber);
+							$dozent->name = $this->getColumnValue('D', $rowNumber);
+							$dozent->vorname = $this->getColumnValue('E', $rowNumber);
+							
+							$dozent->adressdaten->straße = $this->getColumnValue('F',$rowNumber);
+							$dozent->adressdaten->plz = $this->getColumnValue('G',$rowNumber);
+							$dozent->adressdaten->ort = $this->getColumnValue('H',$rowNumber);
+							
+							$dozent->beruf = $this->getColumnValue('I',$rowNumber);
+							
+							$dozent->kontaktdaten->telefon = $this->getColumnValue('J',$rowNumber);
+							$dozent->kontaktdaten->mobil = $this->getColumnValue('K',$rowNumber);
+							$dozent->kontaktdaten->email = $this->getColumnValue('L',$rowNumber);
+							$dozent->kontaktdaten->webseite = $this->getColumnValue('M',$rowNumber);
+								
+							#Ein Datum muss speziell Ausgelesen werden
+							$datum = $this->getColumnValue('N',$rowNumber);
+							$dozent->geburtsdatum = date('Y-m-d', PHPExcel_Shared_Date::ExcelToPHP($datum));
+								
+							$dozent->geburtsort = $this->getColumnValue('O',$rowNumber);
+							$dozent->bankdaten->bank = $this->getColumnValue('P',$rowNumber);
+							$dozent->bankdaten->blz = $this->getColumnValue('Q',$rowNumber);
+							$dozent->bankdaten->bic = $this->getColumnValue('R',$rowNumber);
+							$dozent->bankdaten->iban = $this->getColumnValue('S',$rowNumber);
+							$dozent->bankdaten->kontonummer = $this->getColumnValue('T',$rowNumber);
+							$dozent->bankdaten->lbvnr = $this->getColumnValue('U',$rowNumber);
+							
+							$dozent->firmendaten->name = $this->getColumnValue('V',$rowNumber);
+							$dozent->firmendaten->abteilung = $this->getColumnValue('W',$rowNumber);
+							$dozent->firmendaten->firmaadresse->straße = $this->getColumnValue('X',$rowNumber);
+							$dozent->firmendaten->firmaadresse->plz = $this->getColumnValue('Y',$rowNumber);
+							$dozent->firmendaten->firmaadresse->ort = $this->getColumnValue('Z',$rowNumber);
+							$dozent->firmendaten->kontaktdaten->telefon = $this->getColumnValue('AA',$rowNumber);
+							$dozent->firmendaten->kontaktdaten->fax = $this->getColumnValue('AB',$rowNumber);
+							$dozent->firmendaten->kontaktdaten->mobil = $this->getColumnValue('AC',$rowNumber);
+							
+							$dozent->ehemaliger = $this->getColumnValue('AD',$rowNumber);
+							$dozent->studienfach = $this->getColumnValue('AE',$rowNumber);
+							$dozent->vorlesungszeiten = explode("\n", rtrim($this->getColumnValue('AF',$rowNumber),"\n"));	
+							$dozent->lehrauftrag = $this->getColumnValue('AG',$rowNumber);
+							$dozent->taetigkeiten = $this->getColumnValue('AH',$rowNumber);
+							$dozent->info = $this->getColumnValue('AI',$rowNumber);
+							$dozent->kommentar = $this->getColumnValue('AJ',$rowNumber);
+								
+							# Da die Vorlesungen auf mehrere Spalten im Excel Dokument verteilt
+							# sind muss hier das vorlesungs-Array mehrvach befüllt werden
+							#Einsortieren der Verschiedenen Spalten von Vorlesungen in ein einizges Array
+							$spalten = array('AK', 'AL','AM','AN','AO','AP','AQ','AR','AS','AT',);
+							$tempVorlesungen = "";
+										
+							foreach ($spalten as $vs){
+								$zelle = $this->getColumnValue($vs,$rowNumber);
+								if ($zelle <> "") {
+									if ($tempVorlesungen == ""){
+										$tempVorlesungen = $zelle;
+									}
+									else{
+										$tempVorlesungen = $tempVorlesungen ."\n". $zelle;
+									}
+								}
+														
+							}
+							$dozent->vorlesungen = explode("\n", $tempVorlesungen);
+							$dozent->sprachen = explode("\n",$this->getColumnValue('AU',$rowNumber));
+							$dozent->eingang = $this->getColumnValue('AV',$rowNumber);
+	
+							array_push($this->dozenten, $dozent);
+							
+							$dozent = null;
+						}
 					}
-				}
+			}
+			else{
+				exit("Noch irgendeine Nachricht.");
+			}
 		}
-		else{
-			exit("Noch irgendeine Nachricht.");
+		catch (Exception $ex) {
+			echo "Ein Fehler ist aufgetreten: \n".$ex->getMessage();
 		}
 	}
 	public function dozentenEintragen(){
 		
-		try {
 			//Datenbank-Server verbinden
 			$mysqli = new mysqli("localhost", "root", "", "import");
 			mysqli_autocommit($mysqli, FALSE);
@@ -203,59 +212,59 @@ class ExcelImport{
 			if ($mysqli->connect_errno) {
 				echo "Verbindung zur Datenbank nicht möglich: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
 			}
-			foreach ($this->dozenten as $dozent){
-				$commit = false;
-				$menschquery = "CALL neuen_mensch_anlegen(".$dozent->anrede .","
-														   .$dozent->titel.","
-														   	.$dozent->vorname.","
-														   	.$dozent->name.","
-														   	.$dozent->abschluss.","
-														   	.$dozent->geburtsort.","
-														   	.$dozent->geburtsdatum.","
-														   	.$dozent->ehemaliger.","
-														   	.$dozent->beruf.","
-														   	."iRONR ka was das sein soll".","
-														   	.$dozent->firmendaten->name.","
-														   	.$dozent->firmendaten->abteilung.","
-														   	."iUS_NR".","
-														   	.$dozent->adressdaten->straße.","
-														   	.$dozent->adressdaten->plz.","
-														   	.$dozent->adressdaten->ort.","
-														   	.$dozent->kontaktdaten->telefon.","
-														   	.$dozent->kontaktdaten->mobil.","
-														   	.$dozent->kontaktdaten->email.","
-														   	.$dozent->kontaktdaten->webseite.","
-														   	.$dozent->kontaktdaten->fax.")";
+			else{
+				foreach ($this->dozenten as $dozent){
+					$commit = false;
+					$menschquery = "insert into me_mensch \n values('"
+																.$dozent->anrede ."','"
+															    .$dozent->titel."','"
+															   	.$dozent->vorname."','"
+															   	.$dozent->name."','"
+															   	.$dozent->abschluss."','"
+															   	.$dozent->geburtsort."','"
+															   	.$dozent->geburtsdatum."','"
+															   	.$dozent->ehemaliger."','"
+															   	.$dozent->beruf."','"
+															   	."'1'".","
+															   	.$dozent->firmendaten->name."','"
+															   	.$dozent->firmendaten->abteilung."','"
+															   	."iUS_NR"."','"
+															   	.$dozent->adressdaten->straße."','"
+															   	.$dozent->adressdaten->plz."','"
+															   	.$dozent->adressdaten->ort."','"
+															   	.$dozent->kontaktdaten->telefon."','"
+															   	.$dozent->kontaktdaten->mobil."','"
+															   	.$dozent->kontaktdaten->email."','"
+															   	.$dozent->kontaktdaten->webseite."','"
+															   	.$dozent->kontaktdaten->fax."')";
 				
-				echo $menschquery;
-				echo "<br>";
-				echo "<br>";
-				//$menschID = $mysqli->query($menschquery);
-				
-				if ($menschID <> NULL){
-					$commit = true;
+
+					//$menschID = $mysqli->query($menschquery);
+					$menschID = NULL;
+									
+					if ($menschID <> NULL){
+						$commit = true;
+					}
+					else{
+						$commit = false;
+					}
+					
+					$ausgabe = "";
+					foreach ($dozent->vorlesungen as $vorlesung){
+						//hier kommt der Insert für die Vorlesungen hin
+						$ausgabe = $ausgabe." ". $vorlesung;
+					}
+				}
+				if ($commit = true){
+					mysqli_commit($mysqli);
 				}
 				else{
-					$commit = false;
-				}
-				
-				$ausgabe = "";
-				foreach ($dozent->vorlesungen as $vorlesung){
-					$ausgabe = $ausgabe." ". $vorlesung;
+					mysqli_rollback($mysqli);
+					echo "Daten wurden nicht übertragen, da ein Fehler aufgetreten ist";
 				}
 			}
-			if ($commit = true){
-				mysqli_commit($mysqli);
-			}
-			else{
-				mysqli_rollback($mysqli);
-				throw new Exception("Daten wurden nicht übertragen, da ein Fehler aufgetreten ist");
-			}
-			
-		} catch (Exception $e) {
-			
-		}
 	}
+	
 	public function showData(){
 		#Testeinträge
 		# Hier werden einfach exemplarisch einige Daten angezeigt um zu schauen was drinn steht
@@ -268,33 +277,125 @@ class ExcelImport{
 			echo '<td>'.$dozent->firmendaten->firmaadresse->straße.'</td>';
 			$ausgabe = "";
 			foreach ($dozent->vorlesungen as $vorlesung){
-				$ausgabe = $ausgabe." ". $vorlesung;
+				$ausgabe = $ausgabe.", ". $vorlesung;
 			}
 			echo '<td>'.$ausgabe.'</td>';
-
 			echo '</tr>';
 		}
-		# hier Werden die Daten dann in die DB übertragen
-		# toDo
 	}
-	private function getColumnValue($colName, $row){
-			
+
+// 	}
+	private function getColumnValue($colName, $row)
+	{
+		//global $objPHPExcel;
 		$value = $this->objPHPExcel->getActiveSheet()->getCell($colName.$row)->getValue();
 	
-		if ($colName == "D" || $colName == "E") {
-			# \d a digit (0-9) prüfe auf Zahl
-			if (preg_match("[\d]", $value) ){
-				throw new Exception("Textformatierung in Zeile Spalte  $colName prüfen");
+		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
+		{
+			if ($value == "")  {
+				throw new Exception("Ein Pflichtfeld ist nicht ausgefüllt!!! \n Zeile $row Spalte " .$colName);
 			}
 		}
-// 		elseif ($colName == "N") {
-// 			if (!preg_match("/^\d{1,2}\.\d{1,2}\.\d{4}$/", $value)){
-// 				throw new Exception("Datumsformat in Zeile  Spalte $colName prüfen");
-// 			}
-// 		}
 	
+		elseif ($colName == "N") {
+			if (!preg_match("/^\d{1,2}\.\d{1,2}\.\d{4}$/", $value))
+			{
+				throw new Exception("Das Datumsfeld in Zeile $row Spalte $colname enthält keinen gültigen Wert!");
+			}
+		}
+	
+		elseif ($colName == "D" || $colName == "E") {
+			# \d a digit (0-9) prüfe auf Zahl
+			if (preg_match("[\d]", $value) )
+			{
+				throw new Exception("In den Namensfeldern dürfen keine Zahlen vorkommen! \n Zeile $row Spalte $colName prüfen");
+			}
+		}
 		return $value;
-		# FEHLERPRÜFUNGEN DATUM PFLICHTFELD LEER
+	}
+	
+	private function pruefeExcelstuktur(){
+		
+		$pruef = TRUE;
+		
+		$spalten = $this->getColumnValue('A',"1");
+		$spalten = $spalten.";".$this->getColumnValue('B',"1");
+		$spalten = $spalten.";".$this->getColumnValue('C',"1");
+		$spalten = $spalten.";".$this->getColumnValue('D',"1");
+		$spalten = $spalten.";".$this->getColumnValue('E',"1");
+		$spalten = $spalten.";".$this->getColumnValue('F',"1");
+		$spalten = $spalten.";".$this->getColumnValue('G',"1");
+		$spalten = $spalten.";".$this->getColumnValue('H',"1");
+		$spalten = $spalten.";".$this->getColumnValue('I',"1");
+		$spalten = $spalten.";".$this->getColumnValue('J',"1");
+		$spalten = $spalten.";".$this->getColumnValue('K',"1");
+		$spalten = $spalten.";".$this->getColumnValue('L',"1");
+		$spalten = $spalten.";".$this->getColumnValue('M',"1");
+		$spalten = $spalten.";".$this->getColumnValue('N',"1");
+		$spalten = $spalten.";".$this->getColumnValue('O',"1");
+		$spalten = $spalten.";".$this->getColumnValue('P',"1");
+		$spalten = $spalten.";".$this->getColumnValue('Q',"1");
+		$spalten = $spalten.";".$this->getColumnValue('R',"1");
+		$spalten = $spalten.";".$this->getColumnValue('S',"1");
+		$spalten = $spalten.";".$this->getColumnValue('T',"1");
+		$spalten = $spalten.";".$this->getColumnValue('U',"1");
+		$spalten = $spalten.";".$this->getColumnValue('V',"1");
+		$spalten = $spalten.";".$this->getColumnValue('W',"1");
+		$spalten = $spalten.";".$this->getColumnValue('X',"1");
+		$spalten = $spalten.";".$this->getColumnValue('Y',"1");
+		$spalten = $spalten.";".$this->getColumnValue('Z',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AA',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AB',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AC',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AD',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AE',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AF',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AG',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AH',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AI',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AJ',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AK',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AL',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AM',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AN',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AO',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AP',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AQ',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AR',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AS',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AT',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AO',"1");
+		$spalten = $spalten.";".$this->getColumnValue('AV',"1");
+		//$splaten = $spalten;
+		$test = explode(";", $spalten);
+// 		echo $spalten;
+		
+// 		echo "<br>";
+// 		echo "<br>";
+// 		echo $this->template;
+// 		echo "<br>";
+// 		echo strcmp($spalten, $this->template);
+// 		echo "<br>";
+
+		$max = sizeof($this->template);
+		if (sizeof($this->template) == sizeof($test)){
+			
+			for ($i=0; $i<$max; $i++)
+			{
+				echo $this->template[$i]."|".$test[$i];
+				echo "<br>";
+				
+				if (!strcmp($test[$i], $this->template[$i]) == 0){
+					
+					throw new Exception("Spaltennamen stimmt nicht mit dem Template überein!");
+				}
+
+			}
+		}
+		else{
+			throw new Exception("Spaltenanzahl stimmt nicht mit dem Template überein!");
+		}
+		
 	}
 }
 
