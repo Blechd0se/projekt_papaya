@@ -3,8 +3,7 @@ DROP PROCEDURE neue_praeferenz_anlegen;
 /**
  * Autor: Alexander Christ
  * Datum: 06.01.2015
- * Thema: Legt eine neue Mensch-Bank-Zuordnung an und prüft dabei auf eventuell
- *        vorhandene Dubletten.
+ * Thema: Legt eine neue Präferenz für einen Menschen an.
  * 
  * iME_NR, INT zu welchem Menschen soll der Datensatz gehören
  * iSU_BEZEICHNUNG, String der der Bezeichnung des Studienfaches des Menschen entspricht
