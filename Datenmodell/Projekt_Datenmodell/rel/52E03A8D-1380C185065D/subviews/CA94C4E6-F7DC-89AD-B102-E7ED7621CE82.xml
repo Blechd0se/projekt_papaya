@@ -294,6 +294,10 @@
 </FontObject>
 </fonts>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="48E2F5E1-925B-196D-055A-0889375FFEC3" otype="Table" vid="C15B7D3E-1053-062A-2A64-6F2745557994">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="1401" y="18" width="299" height="75"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.relational.TVTable" oid="4ABCEBF5-F456-A6B1-8DCF-EC91D45F91CF" otype="Table" vid="060324FF-3EEB-DE99-6084-06573534A243">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="1875" y="857" width="349" height="108"/>

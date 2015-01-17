@@ -46,6 +46,8 @@ DROP TABLE vo_vorlesung CASCADE;
 
 DROP TABLE vz_vorlesungszeit CASCADE;
 
+DROP TABLE fe_fehlermeldung CASCADE;
+
 CREATE TABLE ad_adresse
   (
     ad_nr           INT NOT NULL ,
@@ -275,6 +277,13 @@ CREATE TABLE vz_vorlesungszeit
 ALTER TABLE vz_vorlesungszeit ADD CONSTRAINT vz_vorlesungszeit_PK PRIMARY KEY ( vz_nr ) ;
 ALTER TABLE vz_vorlesungszeit ADD CONSTRAINT vz_bezeichnung_UN UNIQUE ( vz_bezeichnung ) ;
 ALTER TABLE vz_vorlesungszeit CHANGE vz_nr vz_nr INT AUTO_INCREMENT;
+
+CREATE TABLE fe_fehlermeldung
+  (
+    fe_nr           INT NOT NULL ,
+    fe_bezeichnung  VARCHAR (4000) NOT NULL
+  ) ;
+ALTER TABLE fe_fehlermeldung ADD CONSTRAINT fe_fehlermeldung_PK PRIMARY KEY ( fe_nr ) ;  
 
 ALTER TABLE me_mensch ADD CONSTRAINT Me_Mensch_Ro_Rolle_FK FOREIGN KEY ( ro_me_nr ) REFERENCES ro_rolle ( ro_nr ) ;
 
