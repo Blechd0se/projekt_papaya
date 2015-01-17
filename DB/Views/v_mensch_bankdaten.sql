@@ -7,6 +7,8 @@
 CREATE OR REPLACE VIEW v_mensch_bankdaten
  AS  
  SELECT me_nr,
+        mb_nr,
+        ba_nr,
         mb_iban,
         mb_konto_nr,
         mb_lbv_nr,
