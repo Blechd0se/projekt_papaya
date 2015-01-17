@@ -23,5 +23,9 @@ BEGIN
      WHERE us_username = iUS_USERNAME
        AND us_password = iUS_PASSWORD;
        
+    IF v_us_nr IS NOT NULL THEN
+        SET @CURRENT_LOGIN_USER = iUS_USERNAME;
+    END IF;
+       
     RETURN v_us_nr;
 END;

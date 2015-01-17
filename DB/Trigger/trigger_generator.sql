@@ -13,10 +13,11 @@
                 table_name), 
             '\n    FOR EACH ROW\n    BEGIN\n\n'),
         CONCAT('       SET NEW.', 
-                CONCAT(column_name, ' = CURRENT_USER();\n')
+                CONCAT(column_name, ' = @CURRENT_LOGIN_USER;\n')
               )
         ), '\n    END;\n'), table_name
    FROM information_schema.COLUMNS
   WHERE column_name LIKE '%_erstellt_von'
     AND TABLE_NAME NOT LIKE 'v0_%'
+    AND TABLE_NAME NOT LIKE 'v_%'
   ;

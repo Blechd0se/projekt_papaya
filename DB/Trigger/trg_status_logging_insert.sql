@@ -9,7 +9,7 @@ CREATE TRIGGER trg_status_logging_insert
        IF @TRIGGER_DISABLED = 0 THEN
            -- Initialen Status setzen;   
            INSERT INTO v0_sl_status_logging (st_sl_nr, me_sl_nr  , us_sl_nr, sl_erstellt_von )
-                                     VALUES (    1   , NEW.me_nr ,    1    , CURRENT_USER()  );
+                                     VALUES (    1   , NEW.me_nr ,    1    , @CURRENT_LOGIN_USER  );
        END IF;
        
     END;
