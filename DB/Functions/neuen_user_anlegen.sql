@@ -17,7 +17,7 @@ CREATE FUNCTION neuen_user_anlegen(
   ) RETURNS INT
     DETERMINISTIC
 BEGIN
-    DECLARE v_us_nr INT DEFAULT -1;
+    DECLARE v_us_nr INT DEFAULT NULL;
 
     SELECT us_nr
       INTO v_us_nr
@@ -28,8 +28,13 @@ BEGIN
 
         INSERT INTO v0_us_user (us_username  , us_password  , us_ist_admin_JN )
                         VALUES (iUS_USERNAME , iUS_PASSWORD , iUS_IST_ADMIN   );
+        
+        SELECT LAST_INSERT_ID()
+          INTO v_us_nr;
+          
+        RETURN v_us_nr;
                     
     END IF;
        
-    RETURN v_us_nr;
+    RETURN -1;
 END;
