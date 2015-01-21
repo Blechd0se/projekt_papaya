@@ -15,4 +15,4 @@ CREATE OR REPLACE VIEW v_mensch_vorlesung
   WHERE vo_mevo_nr = vo_nr
     AND me_mevo_nr = me_nr
     AND su_vo_nr = su_nr
-  GROUP BY su_bezeichnung;
+  ORDER BY me_nr;

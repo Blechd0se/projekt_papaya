@@ -12,4 +12,5 @@ CREATE OR REPLACE VIEW v_mensch_aktueller_status
         sl_erstellt_von,
         sl_erstellt_am
    FROM v_mensch_status_historie
-  LIMIT 1;
+  GROUP BY me_nr
+  ;
