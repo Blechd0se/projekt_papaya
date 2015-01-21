@@ -159,7 +159,7 @@ BEGIN
       
     -- Initialen Status setzen;   
     INSERT INTO v0_sl_status_logging (st_sl_nr, me_sl_nr  , us_sl_nr, sl_erstellt_von )
-                              VALUES (    1   , v_me_nr   , iUS_NR  , CURRENT_USER()  );
+                              VALUES (    1   , v_me_nr   , iUS_NR  , @CURRENT_LOGIN_USER  );
     
     SET @TRIGGER_DISABLED = 0;
     
