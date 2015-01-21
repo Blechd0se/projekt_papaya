@@ -200,7 +200,7 @@ class ExcelImport{
 			}
 		}
 		catch (Exception $ex) {
-			echo "Ein Fehler ist aufgetreten: \n".$ex->getMessage();
+			throw new Exception("Ein Fehler ist aufgetreten: \n".$ex->getMessage());
 		}
 	}
 	public function dozentenEintragen(){
@@ -225,7 +225,7 @@ class ExcelImport{
 															   	.$dozent->geburtsdatum."','"
 															   	.$dozent->ehemaliger."','"
 															   	.$dozent->beruf."','"
-															   	.NULL."','"
+															   	."2"."','"
 															   	.$dozent->firmendaten->name."','"
 															   	.$dozent->firmendaten->abteilung."','"
 															   	."815"."','"
@@ -254,8 +254,8 @@ class ExcelImport{
 					echo "<br>";
 					echo "<br>";
 
-					$menschID = $mysqli->query($menschquery);
-					//$menschID = 111;
+					//$menschID = $mysqli->query($menschquery)->fetch_row()[0];
+					$menschID = 111;
 					echo "ID aus der DB ". $menschID;
 					echo "<br>";
 					echo "<br>";
@@ -273,22 +273,29 @@ class ExcelImport{
 					
 					//$ausgabe = "";
 					foreach ($dozent->vorlesungen as $vorlesung){
-						$vorlesungQuerry = "";
-						$vorlesungQuerry = "select neue_mensch_vorlesung_anlegen(".$menschID.",'".$dozent->studienfach."','".$vorlesung."')";
+						$vorlesungQuery = "";
+						$vorlesungQuery = "call neue_mensch_vorlesung_anlegen(".$menschID.",'".$dozent->studienfach."','".$vorlesung."')";
 						//hier kommt der Insert für die Vorlesungen hin
-						echo $vorlesungQuerry;
+						//$mysqli->query($vorlesungQuery);
+						echo $vorlesungQuery;
 						echo "<br>";
 					}
 					echo "<br>";
 					echo "<br>";
+					foreach ($dozent->vorlesungszeiten as $zeit){
+						$zeitQuery = "";
+						$zeitQuery = "call neue_mensch_vorleszeit_anlegen(".$menschID.",'".$zeit."')";
+						//$mysqli->query($zeitQuery);
+					}
+					
 				}
-// 				if ($commit = true){
-// 					mysqli_commit($mysqli);
-// 				}
-// 				else{
-// 					mysqli_rollback($mysqli);
-// 					echo "Daten wurden nicht übertragen, da ein Fehler aufgetreten ist";
-// 				}
+ 				if ($commit = true){
+ 					mysqli_commit($mysqli);
+ 				}
+ 				else{
+ 					mysqli_rollback($mysqli);
+ 					echo "Daten wurden nicht übertragen, da ein Fehler aufgetreten ist";
+ 				}
 			}
 	}
 	
@@ -318,7 +325,7 @@ class ExcelImport{
 		$value = $this->objPHPExcel->getActiveSheet()->getCell($colName.$row)->getValue();
 		if($value == "")
 		{
-			$value = NULL;
+			$value = 0;
 		}
 	
 		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
