@@ -30,7 +30,7 @@ BEGIN
     
     IF v_admin <> 1 THEN
         -- Wir sind kein Admin;
-        RETURN NULL;
+        RETURN -1;
     ELSE
         UPDATE v0_us_user
            SET us_password = iUS_PASSWORD_NEU

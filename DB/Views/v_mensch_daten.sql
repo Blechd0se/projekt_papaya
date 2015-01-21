@@ -5,8 +5,7 @@
  */
 CREATE OR REPLACE VIEW v_mensch_daten
  AS  
- SELECT me.me_nr,
-        us_username,
+ SELECT me.me_nr
         me_anrede,
         me_titel,
         me_vorname,
@@ -26,14 +25,12 @@ CREATE OR REPLACE VIEW v_mensch_daten
         ko_fax,
         me_erstellt_von
    FROM v0_me_mensch me,
-        v0_us_user,
         v0_ro_rolle,
         v0_mensch_persondaten_zuord,
         v0_ad_adresse,
         v0_ko_kontakt,
         v_mensch_aktueller_status st
   WHERE ro_me_nr = ro_nr
-    AND us_me_nr = me.me_nr
     AND st.me_nr = me.me_nr
     AND me_mp_nr = me.me_nr
     AND ad_mp_nr = ad_nr
