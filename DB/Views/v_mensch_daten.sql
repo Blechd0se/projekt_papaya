@@ -5,7 +5,7 @@
  */
 CREATE OR REPLACE VIEW v_mensch_daten
  AS  
- SELECT me.me_nr
+ SELECT me.me_nr AS me_nr,
         me_anrede,
         me_titel,
         me_vorname,
