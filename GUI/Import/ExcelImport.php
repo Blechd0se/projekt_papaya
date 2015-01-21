@@ -170,23 +170,24 @@ class ExcelImport{
 							# Da die Vorlesungen auf mehrere Spalten im Excel Dokument verteilt
 							# sind muss hier das vorlesungs-Array mehrvach befüllt werden
 							#Einsortieren der Verschiedenen Spalten von Vorlesungen in ein einizges Array
-							$spalten = array('AK', 'AL','AM','AN','AO','AP','AQ','AR','AS','AT',);
+							$spalten = array('AK', 'AL','AM','AN','AO','AP','AQ','AR','AS','AT','AU');
 							$tempVorlesungen = "";
 										
 							foreach ($spalten as $vs){
 								$zelle = $this->zelleAuslesen($vs,$rowNumber);
-								if ($zelle <> "") {
-									if ($tempVorlesungen == ""){
-										$tempVorlesungen = $zelle;
-									}
-									else{
-										$tempVorlesungen = $tempVorlesungen ."\n". $zelle;
-									}
-								}
-														
+								if (!is_null($zelle)) {
+									$dozent->vorlesungen[$this->zelleAuslesen($vs,1)]= explode("\n", $zelle);
+								}						
 							}
-							$dozent->vorlesungen = explode("\n", $tempVorlesungen);
-							$dozent->sprachen = explode("\n",$this->zelleAuslesen('AU',$rowNumber));
+// 							var_dump($dozent->vorlesungen);
+// 							echo "<br>";
+// 							echo "<br>";
+// 							var_dump(array_keys($dozent->vorlesungen));
+// 							echo "<br>";
+// 							echo "<br>";
+// 							echo "<br>";
+							//$dozent->vorlesungen = explode("\n", $tempVorlesungen);
+							//$dozent->sprachen = explode("\n",$this->zelleAuslesen('AU',$rowNumber));
 							$dozent->eingang = $this->zelleAuslesen('AV',$rowNumber);
 	
 							array_push($this->dozenten, $dozent);
@@ -218,33 +219,33 @@ class ExcelImport{
 					$menschquery = "select neuen_mensch_anlegen('"
 																.$dozent->anrede ."','"
 															    .$dozent->titel."','"
-															   	.$mysqli->real_escape_string($dozent->vorname)."','"
-															   	.$mysqli->real_escape_string($dozent->name)."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->vorname))."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->name))."','"
 															   	.$dozent->abschluss."','"
 															   	.$dozent->geburtsort."','"
 															   	.$dozent->geburtsdatum."','"
 															   	.$dozent->ehemaliger."','"
 															   	.$dozent->beruf."','"
 															   	."2"."','"
-															   	.$dozent->firmendaten->name."','"
-															   	.$dozent->firmendaten->abteilung."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->name))."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->abteilung))."','"
 															   	."815"."','"
-															   	.$dozent->adressdaten->straße."','"
-															   	.$dozent->adressdaten->plz."','"
-															   	.$dozent->adressdaten->ort."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->straße))."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->plz))."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->ort))."','"
 															   	.$dozent->kontaktdaten->telefon."','"
 															   	.$dozent->kontaktdaten->mobil."','"
-															   	.$dozent->kontaktdaten->email."','"
-															   	.$dozent->kontaktdaten->webseite."','"
-															   	.$dozent->kontaktdaten->fax."',"
-															   	.$dozent->bankdaten->bank.","
-															   	.$dozent->bankdaten->blz.","
-															   	.$dozent->bankdaten->bic.","
-															   	.$dozent->bankdaten->iban.","
-															   	.$dozent->bankdaten->kontonummer.","
-															   	.$dozent->bankdaten->lbvnr.",'"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->kontaktdaten->email))."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->kontaktdaten->webseite))."','"
+															   	.$dozent->kontaktdaten->fax."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->bankdaten->bank))."','"
+															   	.$dozent->bankdaten->blz."','"
+															   	.$dozent->bankdaten->bic."','"
+															   	.$dozent->bankdaten->iban."','"
+															   	.$dozent->bankdaten->kontonummer."','"
+															   	.$dozent->bankdaten->lbvnr."','"
 															   	.$dozent->studienfach."','"
-															   	.$dozent->lehrauftrag."','"
+															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->lehrauftrag))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->taetigkeiten))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->info))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->kommentar))."')"
@@ -254,43 +255,48 @@ class ExcelImport{
 					echo "<br>";
 					echo "<br>";
 
-					//$menschID = $mysqli->query($menschquery)->fetch_row()[0];
-					$menschID = 111;
+					$menschID = $mysqli->query($menschquery)->fetch_row()[0];
+					//$menschID = 111;
 					echo "ID aus der DB ". $menschID;
 					echo "<br>";
 					echo "<br>";
 									
 					if ($menschID <> NULL){
 						$commit = true;
-						echo "commit gesendet";
 					}
 					else{
 						$commit = false;
-						echo "commit nicht gesendet";
 					}
 					echo "<br>";
 					echo "<br>";
 					
 					//$ausgabe = "";
-					foreach ($dozent->vorlesungen as $vorlesung){
-						$vorlesungQuery = "";
-						$vorlesungQuery = "call neue_mensch_vorlesung_anlegen(".$menschID.",'".$dozent->studienfach."','".$vorlesung."')";
-						//hier kommt der Insert für die Vorlesungen hin
-						//$mysqli->query($vorlesungQuery);
-						echo $vorlesungQuery;
-						echo "<br>";
+					foreach (array_keys($dozent->vorlesungen) as $studienfach){
+						
+						foreach ($dozent->vorlesungen[$studienfach] as $vorlesung){
+							$vorlesungQuery = "";
+							$vorlesungQuery = "call neue_mensch_vorlesung_anlegen(".$menschID.",'".$studienfach."','".$vorlesung."')";
+							echo $vorlesungQuery;
+							echo "<br>";
+							$mysqli->query($vorlesungQuery);
+						}
 					}
 					echo "<br>";
 					echo "<br>";
 					foreach ($dozent->vorlesungszeiten as $zeit){
 						$zeitQuery = "";
 						$zeitQuery = "call neue_mensch_vorleszeit_anlegen(".$menschID.",'".$zeit."')";
-						//$mysqli->query($zeitQuery);
+						echo $zeitQuery;
+						echo "<br>";
+						$mysqli->query($zeitQuery);
 					}
+					echo "<br>";
+					echo "<br>";
 					
 				}
  				if ($commit = true){
  					mysqli_commit($mysqli);
+ 					echo "commit gesendet";
  				}
  				else{
  					mysqli_rollback($mysqli);
@@ -310,9 +316,9 @@ class ExcelImport{
 			echo '<td>'.$dozent->firmendaten->name.'</td>';
 			echo '<td>'.$dozent->firmendaten->firmaadresse->straße.'</td>';
 			$ausgabe = "";
-			foreach ($dozent->vorlesungen as $vorlesung){
-				$ausgabe = $ausgabe.", ". $vorlesung;
-			}
+// 			foreach ($dozent->vorlesungen as $vorlesung){
+// 				$ausgabe = $ausgabe.", ". $vorlesung;
+// 			}
 			echo '<td>'.$ausgabe.'</td>';
 			echo '</tr>';
 		}
@@ -323,10 +329,6 @@ class ExcelImport{
 	{
 		//global $objPHPExcel;
 		$value = $this->objPHPExcel->getActiveSheet()->getCell($colName.$row)->getValue();
-		if($value == "")
-		{
-			$value = 0;
-		}
 	
 		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
 		{
@@ -349,6 +351,11 @@ class ExcelImport{
 				throw new Exception("In den Namensfeldern dürfen keine Zahlen vorkommen! \n Zeile $row Spalte $colName prüfen");
 			}
 		}
+// 		if($value == "")
+// 		{
+// 			$value = "";//!empty($value) ? "$value" : "NULL";
+// 		}
+	
 		return $value;
 	}
 	
