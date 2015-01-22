@@ -3,8 +3,8 @@ DROP FUNCTION neuen_mensch_anlegen;
 /**
  * Autor: Alexander Christ
  * Datum: 30.12.2014
- * Thema: Liefert bei erfolgreichem INSERT die ME_NR zurÃ¼ck. Bei Misserfolg
- *        wird NULL zurÃ¼ckgegeben. 
+ * Thema: Liefert bei erfolgreichem INSERT die ME_NR zurück. Bei Misserfolg
+ *        wird NULL zurückgegeben. 
  * 
  * iME_ANREDE, String der der Anrede des Menschen entspricht
  * iME_TITEL, String der dem Titel des Menschen entspricht
@@ -80,6 +80,7 @@ BEGIN
     DECLARE v_mf_nr INT DEFAULT NULL;
     DECLARE v_me_nr INT DEFAULT NULL;
     DECLARE v_admin INT DEFAULT 0;
+    DECLARE v_username VARCHAR(200) DEFAULT NULL;
     
     SELECT ist_admin_user(null, iUS_NR)
       INTO v_admin;
@@ -87,6 +88,15 @@ BEGIN
     IF v_admin <> 1 THEN
         -- Wir sind kein Admin;
         RETURN NULL;
+    END IF;
+    
+    SELECT us_username
+      INTO v_username
+      FROM v0_us_user
+     WHERE us_nr = iUS_NR;
+     
+    IF v_username IS NOT NULL THEN
+        SET @CURRENT_LOGIN_USER = v_username;
     END IF;
     
     -- Setze auf Default, wenn NULL;
@@ -175,21 +185,25 @@ BEGIN
                                      iKO_FAX);
     
     -- Bankdaten zuordnen;
-    CALL neue_bankdaten_anlegen(v_me_nr,
-                                iBA_BEZEICHNUNG,
-                                iBA_BLZ,
-                                iBA_BIC,
-                                iMB_IBAN,
-                                iMB_KONTO_NR,
-                                iMB_LBV_NR);
+    IF iBA_BEZEICHNUNG <> '' THEN 
+        CALL neue_bankdaten_anlegen(v_me_nr,
+                                    iBA_BEZEICHNUNG,
+                                    iBA_BLZ,
+                                    iBA_BIC,
+                                    iMB_IBAN,
+                                    iMB_KONTO_NR,
+                                    iMB_LBV_NR);
+    END IF;
                                 
-    -- PrÃ¤ferenz zuordnen;
-    CALL neue_praeferenz_anlegen(v_me_nr,
-                                 iSU_BEZEICHNUNG,
-                                 iPR_LEHRAUFTRAEGE,
-                                 iPR_PRAK_TAETIG,
-                                 iPR_WEITERE_INFOS,
-                                 iPR_KOMMENTAR);
+    -- Präferenz zuordnen;
+    IF iSU_BEZEICHNUNG <> '' THEN
+        CALL neue_praeferenz_anlegen(v_me_nr,
+                                     iSU_BEZEICHNUNG,
+                                     iPR_LEHRAUFTRAEGE,
+                                     iPR_PRAK_TAETIG,
+                                     iPR_WEITERE_INFOS,
+                                     iPR_KOMMENTAR);
+    END IF;
     
     RETURN v_me_nr;
     
