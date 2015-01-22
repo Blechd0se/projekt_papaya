@@ -24,7 +24,9 @@ BEGIN
     SELECT st_nr
       INTO v_aktuelle_st_nr
       FROM v_mensch_aktueller_status
-     WHERE me_nr = iME_NR;
+     WHERE me_nr = iME_NR
+     ORDER BY sl_erstellt_am DESC
+     LIMIT 1;
      
     IF iST_NR <> v_aktuelle_st_nr THEN
      
