@@ -6,6 +6,8 @@
 CREATE OR REPLACE VIEW v_mensch_daten
  AS  
  SELECT me.me_nr AS me_nr,
+        ad_nr,
+        ko_nr,
         me_anrede,
         me_titel,
         me_vorname,

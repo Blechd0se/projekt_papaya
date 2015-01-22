@@ -13,7 +13,8 @@ CREATE OR REPLACE VIEW v_mensch_status_historie
         me_nachname,
         st_bezeichnung,
         sl_erstellt_am,
-        sl_erstellt_von
+        sl_erstellt_von,
+        sl_kommentar
    FROM v0_me_mensch,
         v0_sl_status_logging,
         v0_st_status
