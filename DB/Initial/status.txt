@@ -1,0 +1,12 @@
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Gespräch' , 'SYSTEM');
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Geeignet' , 'SYSTEM');
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Weniger geeignet' , 'SYSTEM');
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Im Einsatz' , 'SYSTEM');
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Pausiert' , 'SYSTEM');
+INSERT INTO v0_st_status (st_bezeichnung    , st_erstellt_von)
+                  VALUES ('Betreuer' , 'SYSTEM');
