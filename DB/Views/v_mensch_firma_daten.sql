@@ -8,6 +8,8 @@ CREATE OR REPLACE VIEW v_mensch_firma_daten
 SELECT me_nr,
        ad_nr,
        ko_nr,
+       mf_nr,
+       fi_mf_nr,
        mf_abteilung,
        fi_bezeichnung,
        ko_telefon,

@@ -12,6 +12,7 @@ CREATE OR REPLACE VIEW v_mensch_daten
         me_titel,
         me_vorname,
         me_nachname,
+        me_abschluss,
         st.st_bezeichnung,
         me_gort,
         me_gdatum,

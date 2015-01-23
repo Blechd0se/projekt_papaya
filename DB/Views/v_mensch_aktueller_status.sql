@@ -6,10 +6,12 @@
  
 CREATE OR REPLACE VIEW v_mensch_aktueller_status
  AS 
- SELECT me_nr,
-        st_nr,
-        st_bezeichnung,
-        sl_erstellt_von,
-        sl_erstellt_am
-   FROM v_mensch_status_historie
-  ;
+SELECT t1.me_nr,
+       t1.st_nr,
+       t1.st_bezeichnung,
+       t1.sl_erstellt_von,
+       t1.sl_erstellt_am
+  FROM v_mensch_status_historie t1
+       INNER JOIN v_mensch_max_status t2 
+       ON t1.sl_erstellt_am = t2.date
+       AND t1.st_bezeichnung = t2.st_bezeichnung;
