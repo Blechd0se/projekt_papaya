@@ -72,7 +72,7 @@ class ExcelImport{
 	private $dozenten  = array();
 	private $template = array(); 
 	
-	function __construct($datei){
+	public function dozentenDatenLaden($datei){
 		/** Error reporting */
 		# Welche fehler angezeigt werden Sollen.
 		error_reporting(E_ALL);
@@ -201,13 +201,16 @@ class ExcelImport{
 			}
 		}
 		catch (Exception $ex) {
-			throw new Exception("Ein Fehler ist aufgetreten: \n".$ex->getMessage());
+			return "Ein Fehler ist aufgetreten: \n".$ex->getMessage();
 		}
 	}
 	public function dozentenEintragen(){
 		
+		global $dbHost, $dbUser, $dbPassword, $dbName;
 			//Datenbank-Server verbinden
-			$mysqli = new mysqli("localhost", "root", "", "import");
+			$mysqli = new mysqli($dbHost, $dbUser, $dbPassword, $dbName);
+			$mysqli->set_charset("utf8");
+			
 			mysqli_autocommit($mysqli, FALSE);
 			
 			if ($mysqli->connect_errno) {
@@ -229,7 +232,7 @@ class ExcelImport{
 															   	."2"."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->name))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->abteilung))."','"
-															   	."815"."','"
+															   	."816"."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->straße))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->plz))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->ort))."','"
@@ -251,15 +254,16 @@ class ExcelImport{
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->kommentar))."')"
 															   			;
 				
-					echo $menschquery;
-					echo "<br>";
-					echo "<br>";
+					//echo $menschquery;
+					//echo "<br>";
+					//echo "<br>";
 
 					$menschID = $mysqli->query($menschquery)->fetch_row()[0];
 					//$menschID = 111;
-					echo "ID aus der DB ". $menschID;
-					echo "<br>";
-					echo "<br>";
+					//var_dump($menschID);
+					//echo "ID aus der DB ". $menschID;
+					//echo "<br>";
+					//echo "<br>";
 									
 					if ($menschID <> NULL){
 						$commit = true;
@@ -267,8 +271,8 @@ class ExcelImport{
 					else{
 						$commit = false;
 					}
-					echo "<br>";
-					echo "<br>";
+					//echo "<br>";
+					//echo "<br>";
 					
 					//$ausgabe = "";
 					foreach (array_keys($dozent->vorlesungen) as $studienfach){
@@ -276,27 +280,27 @@ class ExcelImport{
 						foreach ($dozent->vorlesungen[$studienfach] as $vorlesung){
 							$vorlesungQuery = "";
 							$vorlesungQuery = "call neue_mensch_vorlesung_anlegen(".$menschID.",'".$studienfach."','".$vorlesung."')";
-							echo $vorlesungQuery;
-							echo "<br>";
+							//echo $vorlesungQuery;
+							//echo "<br>";
 							$mysqli->query($vorlesungQuery);
 						}
 					}
-					echo "<br>";
-					echo "<br>";
+					//echo "<br>";
+					//echo "<br>";
 					foreach ($dozent->vorlesungszeiten as $zeit){
 						$zeitQuery = "";
 						$zeitQuery = "call neue_mensch_vorleszeit_anlegen(".$menschID.",'".$zeit."')";
-						echo $zeitQuery;
-						echo "<br>";
+						//echo $zeitQuery;
+						//echo "<br>";
 						$mysqli->query($zeitQuery);
 					}
-					echo "<br>";
-					echo "<br>";
+					//echo "<br>";
+					//echo "<br>";
 					
 				}
  				if ($commit = true){
  					mysqli_commit($mysqli);
- 					echo "commit gesendet";
+ 					//echo "commit gesendet";
  				}
  				else{
  					mysqli_rollback($mysqli);
@@ -329,27 +333,29 @@ class ExcelImport{
 	{
 		//global $objPHPExcel;
 		$value = $this->objPHPExcel->getActiveSheet()->getCell($colName.$row)->getValue();
-	
-		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
+		//$value = !empty($value) ? " '" . $value . "' " : "NULL";
+		if($row > 1){
+		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
 		{
 			if ($value == "")  {
 				throw new Exception("Ein Pflichtfeld ist nicht ausgefüllt!!! \n Zeile $row Spalte " .$colName);
 			}
 		}
 	
-		elseif ($colName == "N") {
-			if (!preg_match("/^\d{1,2}\.\d{1,2}\.\d{4}$/", $value))
+		if ($colName == "N") {
+			if (!preg_match("[\d]", $value))
 			{
-				throw new Exception("Das Datumsfeld in Zeile $row Spalte $colname enthält keinen gültigen Wert!");
+				throw new Exception("Das Datumsfeld in Zeile $row Spalte $colName enthält keinen gültigen Wert!");
 			}
 		}
 	
-		elseif ($colName == "D" || $colName == "E") {
+		if ($colName == "D" || $colName == "E") {
 			# \d a digit (0-9) prüfe auf Zahl
 			if (preg_match("[\d]", $value) )
 			{
 				throw new Exception("In den Namensfeldern dürfen keine Zahlen vorkommen! \n Zeile $row Spalte $colName prüfen");
 			}
+		}
 		}
 // 		if($value == "")
 // 		{
