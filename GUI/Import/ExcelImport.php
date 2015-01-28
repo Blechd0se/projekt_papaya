@@ -232,7 +232,7 @@ class ExcelImport{
 															   	."2"."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->name))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->firmendaten->abteilung))."','"
-															   	."816"."','"
+															   	.$_SESSION['id']."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->straße))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->plz))."','"
 															   	.$mysqli->real_escape_string(htmlspecialchars($dozent->adressdaten->ort))."','"
@@ -338,14 +338,14 @@ class ExcelImport{
 		if ($colName == "A" || $colName == "D" || $colName == "E"|| $colName == "F" || $colName == "G" || $colName == "H" || $colName == "I" || $colName == "L" || $colName == "N" || $colName == "O")
 		{
 			if ($value == "")  {
-				throw new Exception("Ein Pflichtfeld ist nicht ausgefüllt!!! \n Zeile $row Spalte " .$colName);
+				throw new Exception("Pflichtfeld in Zeile $row Spalte ist nicht ausgef&uuml;llt!" .$colName);
 			}
 		}
 	
 		if ($colName == "N") {
 			if (!preg_match("[\d]", $value))
 			{
-				throw new Exception("Das Datumsfeld in Zeile $row Spalte $colName enthält keinen gültigen Wert!");
+				throw new Exception("Datumsfeld in Zeile $row Spalte $colName enth&auml;lt keinen g&uuml;ltigen Wert!");
 			}
 		}
 	
@@ -353,7 +353,7 @@ class ExcelImport{
 			# \d a digit (0-9) prüfe auf Zahl
 			if (preg_match("[\d]", $value) )
 			{
-				throw new Exception("In den Namensfeldern dürfen keine Zahlen vorkommen! \n Zeile $row Spalte $colName prüfen");
+				throw new Exception("Namensfelder in Zeile $row Spalte $colName darf keine Zahl enthalten!");
 			}
 		}
 		}
@@ -427,13 +427,13 @@ class ExcelImport{
 			{
 				if (!strcmp($test[$i], $this->template[$i]) == 0){
 					
-					throw new Exception("Spaltennamen stimmt nicht mit dem Template überein!");
+					throw new Exception("Spaltennamen stimmen nicht mit dem Template &uuml;berein!");
 				}
 
 			}
 		}
 		else{
-			throw new Exception("Spaltenanzahl stimmt nicht mit dem Template überein!");
+			throw new Exception("Spaltenanzahl stimmt nicht mit dem Template &uuml;berein!");
 		}
 		
 	}
